@@ -47,6 +47,19 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        capecod: {
+          50: 'hsl(180, 6%, 97%)',
+          100: 'hsl(168, 9%, 89%)',
+          200: 'hsl(173, 8%, 78%)',
+          300: 'hsl(176, 8%, 64%)',
+          400: 'hsl(176, 7%, 50%)',
+          500: 'hsl(177, 9%, 40%)',
+          600: 'hsl(180, 8%, 32%)',
+          700: 'hsl(180, 8%, 27%)',
+          800: 'hsl(189, 6%, 22%)',
+          900: 'hsl(180, 7%, 19%)',
+          950: 'hsl(180, 10%, 10%)',
+        },
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -55,6 +68,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        bangers: ['Bangers', ...fontFamily.sans],
+        galada: ['Galada', ...fontFamily.sans],
+        chivo: ['Chivo Mono', ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {

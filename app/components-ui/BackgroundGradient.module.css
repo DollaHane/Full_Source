@@ -1,0 +1,13 @@
+.main {
+  width: 100%;
+  height: 100%;
+  background-color:#9e99ff;
+  background-image:
+  radial-gradient(at 90% 40%, hsla(348,80%,74%,1) 0px, transparent 50%),
+  radial-gradient(at 18% 92%, hsla(286,74%,79%,1) 0px, transparent 50%),
+  radial-gradient(at 82% 0%, hsla(318,76%,71%,1) 0px, transparent 50%),
+  radial-gradient(at 13% 82%, hsla(163,98%,61%,1) 0px, transparent 50%),
+  radial-gradient(at 14% 78%, hsla(221,85%,71%,1) 0px, transparent 50%),
+  radial-gradient(at 78% 15%, hsla(286,90%,68%,1) 0px, transparent 50%),
+  radial-gradient(at 33% 42%, hsla(190,86%,64%,1) 0px, transparent 50%);
+}
