@@ -68,6 +68,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        cinzel: ['Prompt', ...fontFamily.sans],
+        indie: ['Indie Flower', ...fontFamily.sans],
         bangers: ['Bangers', ...fontFamily.sans],
         galada: ['Galada', ...fontFamily.sans],
         chivo: ['Chivo Mono', ...fontFamily.sans],
