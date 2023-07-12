@@ -1,7 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
 
 // COMPONENT Imports
 import { Button } from './components-ui/Button'
+import { buttonVariants } from './components-ui/Button'
 import styles from './page.module.css'
 
 // ICON Imports
@@ -12,7 +16,10 @@ import Prisma from './assets/prisma_icon_132076.svg'
 import ReactLogo from './assets/react_icon_196203.svg'
 import Tailwind from './assets/tailwind_icon_131947.svg'
 
-export default function IndexPage() {
+export default async function IndexPage() {
+
+  const session = await getServerSession(authOptions)
+
   return (
     <main className="w-full h-full">
       
@@ -31,9 +38,18 @@ export default function IndexPage() {
         <p className='text-2xl md:text-3xl font-galada text-center mt-10'>
           An all-in-one carefully packaged recource for full stack web application developement 
         </p>
-        <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold hover:bg-rose-500 hover:text-zinc-100'>
-          GET STARTED
-        </Button>
+
+        {session?.user ? (
+          <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold hover:bg-rose-500 hover:text-zinc-100'>
+            GET STARTED
+          </Button>
+          ) : (
+            <Link href='/sign-in'>
+              <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold hover:bg-rose-500 hover:text-zinc-100'>
+                SIGN IN
+              </Button>
+            </Link>
+        )}
 
         {/* GRID SECTION */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-10'>
