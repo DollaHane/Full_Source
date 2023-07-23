@@ -205,7 +205,7 @@ export default function Editor({ post, params }: EditPageProps) {
   }
 
   return (
-    <div className='w-4/5 mx-auto p-5 bg-background rounded-lg'>
+    <div className='w-full p-4 bg-background rounded-lg'>
       <form id='workflow-update-form' className='w-full' onSubmit={handleSubmit(onSubmit)}>
         
         <div className='prose prose-stone dark:prose-invert'>
@@ -239,7 +239,7 @@ export default function Editor({ post, params }: EditPageProps) {
               <p className='mb-2'>
                 Select Type:
               </p>
-              <select {...register("type")} defaultValue={type} className='w-48 h-8 p-1 outline-none rounded'>
+              <select {...register("type")} defaultValue={type} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
                 {typeList.map((item: string) => {
                   return (
                     <option key={item} value={item}>
@@ -255,7 +255,7 @@ export default function Editor({ post, params }: EditPageProps) {
               <p className='mb-2'>
                 Select Category:
               </p>
-              <select {...register("category")} defaultValue={category} className='w-48 h-8 p-1 outline-none rounded'>
+              <select {...register("category")} defaultValue={category} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
                 {categoryList.map((item: string) => {
                   return (
                     <option key={item} value={item}>
@@ -271,7 +271,7 @@ export default function Editor({ post, params }: EditPageProps) {
               <p className='mb-2'>
                 Select Index:
               </p>
-              <select {...register("index", {valueAsNumber: true})} defaultValue={index} className='w-16 h-8 p-1 text-center outline-none rounded'>
+              <select {...register("index", {valueAsNumber: true})} defaultValue={index} className='w-16 h-8 p-1 bg-secondary  text-center outline-none rounded'>
                 {numberOptions.map((item: number) => {
                   return (
                     <option key={item} value={item}>

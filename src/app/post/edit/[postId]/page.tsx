@@ -31,14 +31,14 @@ export default async function PostPageContent ({ params }: PostPageProps) {
       <NavBar/>
 
     {/* PAGE */}
-    <div className='p-10'>
+    <div className='w-4/5 mx-auto p-5'>
       {/* EDITOR */}
       <Editor 
         params={params}
         post={post}
       />
 
-      <div className='w-full flex justify-start mt-10'>
+      <div className='flex justify-start mt-10'>
         <Button type='submit' className='w-20 bg-capecod-600 hover:bg-background text-zinc-50 hover:text-primary shadow-lg rounded-full hover:border border-cyan-500' form='workflow-update-form'>
           Update
         </Button>

@@ -4,7 +4,8 @@ import { formatTimeToNow } from '@/src/lib/utils'
 import { Post, User, Vote } from '@prisma/client'
 import { MessageSquare } from 'lucide-react'
 import Link from 'next/link'
-import PostVoteClient from '../post-vote/PostVoteClient'
+import { cn } from '@/src/lib/utils'
+import { useTheme } from 'next-themes'
 
 type PartialVote = Pick<Vote, 'type'>
 
@@ -19,9 +20,11 @@ interface PostProps {
 }
 
 export default function Post({ post, votesAmt: _votesAmt, currentVote: _currentVote, commentAmt }: PostProps) {
-  
+  const theme = useTheme()
   return (
-    <div className='w-7/12 mx-auto px-5 rounded-lg bg-background border border-capecod-100 shadow-md'>
+    <div className='w-7/12 mx-auto px-5 rounded-lg bg-background border border-secondary shadow-md'
+    
+    >
       
       <div className='flex justify-between py-2'>
         <div className='w-0 flex-1'>

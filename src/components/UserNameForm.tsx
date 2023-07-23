@@ -82,7 +82,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Your username</CardTitle>
+          <CardTitle>Username</CardTitle>
           <CardDescription>
             Please enter a display name you are comfortable with.
           </CardDescription>
@@ -97,7 +97,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
             </Label>
             <Input
               id='name'
-              className='w-[400px] pl-6'
+              className='w-[400px] pl-6 bg-secondary'
               size={32}
               {...register('name')}
             />
@@ -107,7 +107,12 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
           </div>
         </CardContent>
         <CardFooter>
-          <Button isLoading={isLoading}>Change name</Button>
+          <Button 
+            className='w-40 mt-5 bg-capecod-600 hover:bg-background text-zinc-50 hover:text-primary shadow-lg rounded-full hover:border border-cyan-500'
+            isLoading={isLoading}
+          >
+            Change name
+          </Button>
         </CardFooter>
       </Card>
     </form>

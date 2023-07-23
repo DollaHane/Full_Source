@@ -227,7 +227,7 @@ export default function Creator() {
               <p className='mb-2'>
                 Select Type:
               </p>
-              <select {...register("type")} className='w-48 h-8 p-1 outline-none rounded'>
+              <select {...register("type")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
                 {typeList.map((item: string) => {
                   return (
                     <option key={item} value={item}>
@@ -243,7 +243,7 @@ export default function Creator() {
               <p className='mb-2'>
                 Select Category:
               </p>
-              <select {...register("category")} className='w-48 h-8 p-1 outline-none rounded'>
+              <select {...register("category")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
                 {categoryList.map((item: string) => {
                   return (
                     <option key={item} value={item}>
@@ -259,7 +259,7 @@ export default function Creator() {
               <p className='mb-2'>
                 Select Index:
               </p>
-              <select {...register("index", {valueAsNumber: true})} className='w-16 h-8 p-1 text-center outline-none rounded'>
+              <select {...register("index", {valueAsNumber: true})} className='w-16 h-8 p-1 text-center bg-secondary outline-none rounded'>
                 {numberOptions.map((item: number) => {
                   return (
                     <option key={item} value={item}>
