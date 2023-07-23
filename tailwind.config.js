@@ -3,7 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  content: ["src/app/**/*.{ts,tsx}", "src/components/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -67,8 +67,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        cinzel: ['Prompt', ...fontFamily.sans],
+        sans: ["Prompt", ...fontFamily.sans],
+        prompt: ['Prompt', ...fontFamily.sans],
         indie: ['Indie Flower', ...fontFamily.sans],
         bangers: ['Bangers', ...fontFamily.sans],
         galada: ['Galada', ...fontFamily.sans],
