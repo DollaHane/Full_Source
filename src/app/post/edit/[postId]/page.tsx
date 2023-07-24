@@ -38,7 +38,7 @@ export default async function PostPageContent ({ params }: PostPageProps) {
         post={post}
       />
 
-      <div className='flex justify-start mt-10'>
+      <div className='flex justify-end mt-10'>
         <Button type='submit' className='w-20 bg-capecod-600 hover:bg-background text-zinc-50 hover:text-primary shadow-lg rounded-full hover:border border-cyan-500' form='workflow-update-form'>
           Update
         </Button>

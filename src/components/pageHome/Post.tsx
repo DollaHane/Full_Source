@@ -29,11 +29,16 @@ export default function Post({ post, votesAmt: _votesAmt, currentVote: _currentV
       <div className='flex justify-between py-2'>
         <div className='w-0 flex-1'>
 
-          <a href={`/post/${post.id}`}>
+          <div className=' flex flex-row gap-2'>
             <h1 className='text-xl font-prompt font-semibold text-cyan-500 py-2 leading-6'>
-              {post.title}
+              {post.index} -
             </h1>
-          </a>
+            <a href={`/post/${post.id}`}>
+              <h1 className='text-xl font-prompt font-semibold text-cyan-500 py-2 leading-6'>
+                {post.title}
+              </h1>
+            </a>
+          </div>
 
           <div className='relative text-sm max-h-40 w-full overflow-clip'>
             <p>

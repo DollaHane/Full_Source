@@ -274,7 +274,7 @@ export default function Creator() {
           <hr/>
           
           {/* EDITOR AREA */}
-          <div id='editor' className='flex min-h-[300px] w-full justify-start px-12 font-chivo' />
+          <div id='editor' className='flex min-h-[300px] w-full justify-start px-12' />
           
           <p className='text-sm text-gray-500'>
             Use{' '}

@@ -2,7 +2,6 @@
 
 import CustomCodeRenderer from '../renderers/CustomCodeRenderer'
 import CustomImageRenderer from '../renderers/CustomImageRenderer'
-import { FC } from 'react'
 import dynamic from 'next/dynamic'
 
 const Output = dynamic(
