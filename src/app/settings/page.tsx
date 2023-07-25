@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { NavBar } from '../../components/NavBar'
 import { UserNameForm } from '@/src/components/UserNameForm'
+import { UserManager } from '@/src/components/UserManager'
 import { authOptions, getAuthSession } from '@/src/lib/auth'
 
 export const metadata = {
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default async function SettingsPage() {
   const session = await getAuthSession()
+  const user: any = session?.user
 
   if (!session?.user) {
     redirect(authOptions?.pages?.signIn || '/login')
@@ -30,6 +32,13 @@ export default async function SettingsPage() {
               }}
             />
           </div>
+
+          {user?.admin === true && (
+            <div>
+              <UserManager/>
+            </div>
+          )}
+
         </div>
       </div>
     </div>

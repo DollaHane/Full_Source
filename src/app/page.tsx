@@ -41,18 +41,18 @@ export default async function IndexPage() {
 
         {session?.user ? (
             <div className='flex flex-col'>
-              <p className='w-62 mx-auto mt-10 text-md md:text-lg font-chivo'>
+              <p className='w-62 mx-auto mt-10 text-md md:text-lg'>
                 {`Welcome ${session.user.name}!`}
               </p>
               <Link href='/home'>
-                <Button variant='outline' className='flex mt-2 w-62 mx-auto font-bold hover:bg-rose-500 hover:text-zinc-100'>
+                <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold bg-rose-600 hover:bg-background text-zinc-50 shadow-lg rounded-full hover:border border-cyan-500'>
                   GET STARTED
                 </Button>
               </Link>
             </div>
           ) : (
             <Link href='/sign-in'>
-              <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold hover:bg-rose-500 hover:text-zinc-100'>
+              <Button variant='outline' className='flex mt-10 w-44 mx-auto font-bold bg-rose-600 hover:bg-background text-zinc-50 shadow-lg rounded-full hover:border border-cyan-500'>
                 SIGN IN
               </Button>
             </Link>
@@ -63,10 +63,10 @@ export default async function IndexPage() {
 
           {/* TEXT */}
           <div className='p-5 flex flex-col justify-center content-center w-full'>
-            <p className='w-7/8 text-md md:text-lg font-chivo text-left'>
+            <p className='w-7/8 text-md md:text-lg text-left'>
               "Curated, updated and maintained by @dollahane, for himself...
             </p>
-            <p className='w-7/8 text-md md:text-lg font-chivo text-right mt-5'>
+            <p className='w-7/8 text-md md:text-lg text-right mt-5'>
               and well, for whom ever may stumble upon it :) "
             </p>
             

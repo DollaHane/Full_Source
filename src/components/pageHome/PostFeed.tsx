@@ -47,7 +47,7 @@ export default function PostFeed ({ initialPosts }: PostFeedProps) {
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts
 
   return (
-    <ul className='flex flex-col col-span-2 space-y-10 my-10'>
+    <ul className='flex flex-col col-span-2 space-y-10 mt-10 mb-44'>
       {posts.map((post, index) => {
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === 'UP') return acc + 1

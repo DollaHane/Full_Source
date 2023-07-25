@@ -61,7 +61,6 @@ export default function Editor({ post, params }: EditPageProps) {
       const payload: PostCreationRequest = { type, category, index, title, description, content }
       const { data } = await axios.patch(`/api/post/update/${postId}`, payload)
       
-      console.log("Data:", data)
       return data
     },
 
