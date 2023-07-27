@@ -19,10 +19,10 @@ export default function NpmComponent({ post }: PostProps) {
           {post.title}
         </h1>
       </a>
-      <pre className='w-full flex relative bg-capecod-600 rounded-md p-2 shadow-sm'>
+      <pre className='w-full flex relative bg-capecod-600 rounded p-2 shadow-sm'>
       <code className='text-capecod-50 text-xs truncate'>{post.description}</code>
       <Button
-        className='bg-capecod-600 absolute h-8 top-0 right-0'
+        className='bg-capecod-600 absolute hover:bg-capecod-400 h-8 top-0 right-0'
         onClick={() => {
           navigator.clipboard.writeText(text);}}
         size='sm'
