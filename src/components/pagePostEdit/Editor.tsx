@@ -154,7 +154,7 @@ export default function Editor({ post, params }: EditPageProps) {
         },
       })
     }
-  }, [])
+  }, [post.content.blocks])
 
   useEffect(() => {
     if (Object.keys(errors).length) {

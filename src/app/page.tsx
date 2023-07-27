@@ -66,10 +66,10 @@ export default async function IndexPage() {
           {/* TEXT */}
           <div className="flex w-full flex-col content-center justify-center p-5">
             <p className="w-7/8 text-md text-left md:text-lg">
-              "Curated, updated and maintained by @dollahane, for himself...
+              Curated, updated and maintained by @dollahane, for himself...
             </p>
             <p className="w-7/8 text-md mt-5 text-right md:text-lg">
-              and well, for whom ever may stumble upon it :) "
+              and well, for whom ever may stumble upon it :)
             </p>
           </div>
 
