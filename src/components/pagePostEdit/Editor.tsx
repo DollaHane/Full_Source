@@ -18,6 +18,13 @@ import "../../styles/editor.css"
 
 type FormData = z.infer<typeof PostValidator>
 
+type UploadOptions = {
+  endpoint: "imageUploader"
+  onUploadProgress?: ({ file, progress }: { file: string; progress: number }) => void
+  input?: any
+  files: File[]
+};
+
 interface EditPageProps {
   params: {
     postId: string
@@ -134,8 +141,8 @@ export default function Editor({ post, params }: EditPageProps) {
             class: ImageTool,
             config: {
               uploader: {
-                async uploadByFile(file: File) {
-                  const [res] = await uploadFiles([file], "imageUploader")
+                async uploadByFile(file: UploadOptions) {
+                  const [res] = await uploadFiles(file)
                   return {
                     success: 1,
                     file: {
