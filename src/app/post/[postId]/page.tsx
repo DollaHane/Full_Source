@@ -75,6 +75,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
           <EditorOutput content={post?.content ?? cachedPost.content} />
 
           <div className="mt-5 flex flex-col gap-2">
+            {/* @ts-expect-error Server Component */}
             <PostVoteServer
               postId={post?.id ?? cachedPost.id}
               getData={async () => {
