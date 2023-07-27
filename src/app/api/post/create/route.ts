@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const body = await req.json()
     console.log("Post Body", body)
 
-    const { type, category, index, title, description, content } = PostValidator.parse(body)
+    const { type, categorydoc, categorynpm, index, title, description, content } = PostValidator.parse(body)
 
     const session = await getAuthSession()
     console.log(session)
@@ -20,7 +20,8 @@ export async function POST(req: Request) {
     const post = await db.post.create({
       data: {
         type,
-        category,
+        categorydoc,
+        categorynpm,
         index,
         title,
         description,

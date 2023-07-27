@@ -64,7 +64,8 @@ model User {
 model Post {
   id          String    @id @default(cuid())
   type        String
-  category    String
+  categorydoc    String
+  categorynpm    String
   index       Int
   title       String
   description String

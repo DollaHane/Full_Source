@@ -2,7 +2,8 @@ import { z } from 'zod'
 
 export const PostValidator = z.object({
   type: z.string(),
-  category: z.string(),
+  categorydoc: z.string(),
+  categorynpm: z.string(),
   index: z
     .number()
     .max(128, {

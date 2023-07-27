@@ -12,8 +12,8 @@ import { uploadFiles } from '@/src/lib/uploadthing'
 import { PostCreationRequest, PostValidator } from '@/src/lib/validators/post'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
-import { categoryList } from '@/src/lib/postSelections'
-import { typeList } from '@/src/lib/postSelections'
+import { npmList } from '@/src/lib/postSelections'
+import { docList } from '@/src/lib/postSelections'
 import '../../styles/editor.css'
 
 type FormData = z.infer<typeof PostValidator>
@@ -21,11 +21,16 @@ type FormData = z.infer<typeof PostValidator>
 
 export default function Creator() {
 
+  // Toggle Category Selection
+  const [postType, setPostType] = useState<string>("Documentation")
+
+  // Initialise useForm
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(PostValidator),
     defaultValues: {
       type: '',
-      category: '',
+      categorydoc: '',
+      categorynpm: '',
       index: 0,
       title: '',
       description: '',
@@ -44,9 +49,9 @@ export default function Creator() {
   const { mutate: createPost } = useMutation({
 
     // PAYLOAD
-    mutationFn: async ({ type, category, index, title, description, content  }: PostCreationRequest) => {
+    mutationFn: async ({ type, categorydoc, categorynpm, index, title, description, content  }: PostCreationRequest) => {
       
-      const payload: PostCreationRequest = { type, category, index, title, description, content }
+      const payload: PostCreationRequest = { type, categorydoc, categorynpm, index, title, description, content }
       const { data } = await axios.post('/api/post/create', payload)
       
       console.log("Data:", data)
@@ -173,13 +178,13 @@ export default function Creator() {
 
     const payload: PostCreationRequest = {
       type: data.type,
-      category: data.category,
+      categorydoc: data.categorydoc,
+      categorynpm: data.categorynpm,
       index: data.index,
       title: data.title,
       description: data.description,
       content: blocks,
     }
-    console.log("Payload:", payload)
     createPost(payload)
   }
 
@@ -191,6 +196,9 @@ export default function Creator() {
   for (let i = 0; i <= 100; i++) {
     numberOptions.push(i);
   }
+
+  
+  
 
   return (
     <div className='w-full p-4 bg-background rounded-lg'>
@@ -219,57 +227,135 @@ export default function Creator() {
 
           <hr className='w-full'/>
           
+            <div className='flex flex-row gap-5 mt-5'>
+              <label>
+                <input
+                  className='mx-2 accent-rose-500'
+                  type="radio"
+                  value="Documentation"
+                  checked={postType === "Documentation"}
+                  onChange={(event) => setPostType(event.target.value)}
+                />
+                Documentation
+              </label>
+              <label>
+                <input
+                  className='mx-2 accent-rose-500'
+                  type="radio"
+                  value="NPM Link"
+                  checked={postType === "NPM Link"}
+                  onChange={(event) => setPostType(event.target.value)}
+                />
+                NPM Link
+              </label>
+            </div>
+
           {/* OPTIONS SELECTION */}
-          <div className='flex flex-wrap w-full gap-10 my-5 text-sm'>
+         
+            { postType === 'Documentation' ? (
+              <div className='flex flex-wrap w-full gap-10 my-5 text-sm'>
 
-            {/* TYPE */}
-            <div>
-              <p className='mb-2'>
-                Select Type:
-              </p>
-              <select {...register("type")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
-                {typeList.map((item: string) => {
-                  return (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  )
-                })}
-              </select>
-            </div>
+                {/* DOC TYPE */}
+                <div>
+                  <p className='mb-2'>
+                    Type (Default):
+                  </p>
+                  <select 
+                    className='w-48 h-8 p-1 bg-secondary outline-none rounded'
+                    {...register("type")} 
+                    >
+                      <option value='Documentation'>
+                        Documentation
+                      </option>
+                  </select>
+                </div>
 
-            {/* CATEGORY */}
-            <div>
-              <p className='mb-2'>
-                Select Category:
-              </p>
-              <select {...register("category")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
-                {categoryList.map((item: string) => {
-                  return (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  )
-                })}
-              </select>
-            </div>
-            
-            {/* INDEX */}
-            <div>
-              <p className='mb-2'>
-                Select Index:
-              </p>
-              <select {...register("index", {valueAsNumber: true})} className='w-16 h-8 p-1 text-center bg-secondary outline-none rounded'>
-                {numberOptions.map((item: number) => {
-                  return (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  )
-                })}
-              </select>
-            </div>
-          </div>
+                {/* DOCS CATEGORY */}
+                <div>
+                  <p className='mb-2'>
+                    Select Document Category:
+                  </p>
+                  <select {...register("categorydoc")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
+                    {docList.map((item: string) => {
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+                
+                {/* INDEX */}
+                <div>
+                  <p className='mb-2'>
+                    Select Index:
+                  </p>
+                  <select {...register("index", {valueAsNumber: true})} className='w-16 h-8 p-1 text-center bg-secondary outline-none rounded'>
+                    {numberOptions.map((item: number) => {
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+
+              </div>
+
+            ) : (
+
+              <div className='flex flex-wrap w-full gap-10 my-5 text-sm'>
+
+                {/* NPM TYPE */}
+                <div>
+                  <p className='mb-2'>
+                    Type (Default):
+                  </p>
+                  <select 
+                    className='w-48 h-8 p-1 bg-secondary outline-none rounded'
+                    {...register("type")} 
+                    >
+                      <option value='NPM Link'>
+                        NPM Link
+                      </option>
+                  </select>
+                </div>
+
+                {/* NPM CATEGORY */}
+                <div>
+                  <p className='mb-2'>
+                    Select NPM Category:
+                  </p>
+                  <select {...register("categorynpm")} className='w-48 h-8 p-1 bg-secondary  outline-none rounded'>
+                    {npmList.map((item: string) => {
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+
+                {/* INDEX */}
+                <div>
+                  <p className='mb-2'>
+                    Select Index:
+                  </p>
+                  <select {...register("index", {valueAsNumber: true})} className='w-16 h-8 p-1 text-center bg-secondary outline-none rounded'>
+                    {numberOptions.map((item: number) => {
+                      return (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+              </div>
+            )}
           
           <hr/>
           

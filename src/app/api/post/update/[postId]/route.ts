@@ -10,7 +10,7 @@ export async function PATCH(req: Request, context: any) {
     const body = await req.json()
     console.log("Post Body", body)
 
-    const { type, category, index, title, description, content } = PostValidator.parse(body)
+    const { type, categorydoc, categorynpm, index, title, description, content } = PostValidator.parse(body)
 
     const session = await getAuthSession()
     console.log(session)
@@ -25,7 +25,8 @@ export async function PATCH(req: Request, context: any) {
       },
       data: {
         type,
-        category,
+        categorydoc, 
+        categorynpm,
         index,
         title,
         description,

@@ -1,8 +1,10 @@
 import { db } from '@/src/lib/db'
-import PostFeed from './PostFeed'
-import { INFINITE_SCROLL_PAGINATION_RESULTS } from '@/src/config'
+import { Post } from '@prisma/client';
+import WorkflowFeed from './WorkflowFeed'
+import NpmFeed from './NpmFeed';
 
-const GeneralFeed = async () => {
+export default async function GeneralFeed() {
+
   const posts = await db.post.findMany({
     orderBy: {
       index: 'asc',
@@ -12,10 +14,36 @@ const GeneralFeed = async () => {
       author: true,
       comments: true,
     },
-    take: INFINITE_SCROLL_PAGINATION_RESULTS, // 4 to demonstrate infinite scroll, should be higher in production
   })
 
-  return <PostFeed initialPosts={posts} />
+  console.log('Posts:', posts)
+
+  const formatWorkflowPosts = (posts: Post) => {
+    return posts?.categorydoc === 'Workflow'
+  };
+
+  const formatNpmPosts = (posts: Post) => {
+    return posts?.type === 'NPM Link'
+  };
+
+  const workflowPosts = posts.filter(formatWorkflowPosts)
+  const npmPosts = posts.filter(formatNpmPosts)
+  console.log('npmPosts:', npmPosts)
+
+
+  return (
+    <div className='flex flex-row justify-between'>
+      <div className='w-2/12 h-[100vh] ml-5 border-r border-secondary'>
+        Side Nav
+      </div>
+      <div className='w-6/12'>
+        <WorkflowFeed posts={workflowPosts} />
+      </div>
+      <div className='w-3/12 border-l border-secondary'>
+        <NpmFeed posts={npmPosts}/>
+      </div>
+    </div>
+    ) 
 }
 
-export default GeneralFeed
+
