@@ -41,4 +41,5 @@ export default async function GeneralFeed() {
       </div>
     </div>
   )
-}
+} 
+

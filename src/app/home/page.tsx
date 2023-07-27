@@ -43,7 +43,8 @@ export default async function Home() {
       </header>
 
       {/* FEED */}
-      {<GeneralFeed />}
+      {/* @ts-expect-error Server Component */}
+      <GeneralFeed /> 
     </div>
   )
 }
