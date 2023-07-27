@@ -37,7 +37,7 @@ export default function Workflow({ post, votesAmt: _votesAmt, currentVote: _curr
             </a>
           </div>
 
-          <div className='relative text-sm max-h-40 w-full overflow-clip'>
+          <div className='relative text-sm max-h-40 w-full text-clip'>
             <p>
               {post.description}
             </p>
