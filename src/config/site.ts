@@ -6,7 +6,8 @@ export const siteConfig = {
     "Welcome to the fullstack handbook and workflow guide.",
   mainNav: [
     {
-      
+      title: "Home",
+      href: "/",
     },
   ],
   links: {

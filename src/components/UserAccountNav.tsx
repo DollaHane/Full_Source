@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { User } from "next-auth"
+import { User } from ".prisma/client"
 import { signOut } from "next-auth/react"
 
 import {
