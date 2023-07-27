@@ -1,8 +1,9 @@
-import { getAuthSession } from '@/src/lib/auth'
-import { db } from '@/src/lib/db'
-import { Comment, CommentVote, User } from '@prisma/client'
-import CreateComment from './CreateComment'
-import PostComment from './PostComment'
+import { getAuthSession } from "@/src/lib/auth"
+import { db } from "@/src/lib/db"
+import { Comment, CommentVote, User } from "@prisma/client"
+
+import CreateComment from "./CreateComment"
+import PostComment from "./PostComment"
 
 type ExtendedComment = Comment & {
   votes: CommentVote[]
@@ -21,7 +22,6 @@ interface CommentsSectionProps {
 }
 
 const CommentsSection = async ({ postId }: CommentsSectionProps) => {
-  
   const session = await getAuthSession()
 
   const comments = await db.comment.findMany({
@@ -43,19 +43,19 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
   })
 
   return (
-    <div className='flex flex-col gap-y-4 mt-4'>
-      <hr className='w-full h-px my-6' />
+    <div className="mt-4 flex flex-col gap-y-4">
+      <hr className="my-6 h-px w-full" />
 
       <CreateComment postId={postId} />
 
-      <div className='flex flex-col gap-y-6 mt-4'>
+      <div className="mt-4 flex flex-col gap-y-6">
         {comments
           .filter((comment) => !comment.replyToId)
           .map((topLevelComment) => {
             const topLevelCommentVotesAmt = topLevelComment.votes.reduce(
               (acc, vote) => {
-                if (vote.type === 'UP') return acc + 1
-                if (vote.type === 'DOWN') return acc - 1
+                if (vote.type === "UP") return acc + 1
+                if (vote.type === "DOWN") return acc - 1
                 return acc
               },
               0
@@ -66,8 +66,8 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
             )
 
             return (
-              <div key={topLevelComment.id} className='flex flex-col'>
-                <div className='mb-2'>
+              <div key={topLevelComment.id} className="flex flex-col">
+                <div className="mb-2">
                   <PostComment
                     comment={topLevelComment}
                     currentVote={topLevelCommentVote}
@@ -81,8 +81,8 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                   .sort((a, b) => b.votes.length - a.votes.length) // Sort replies by most liked
                   .map((reply) => {
                     const replyVotesAmt = reply.votes.reduce((acc, vote) => {
-                      if (vote.type === 'UP') return acc + 1
-                      if (vote.type === 'DOWN') return acc - 1
+                      if (vote.type === "UP") return acc + 1
+                      if (vote.type === "DOWN") return acc - 1
                       return acc
                     }, 0)
 
@@ -93,7 +93,7 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                     return (
                       <div
                         key={reply.id}
-                        className='ml-5 mb-2 py-3 pr-3 pl-4 bg-secondary rounded-lg'
+                        className="mb-2 ml-5 rounded-lg bg-secondary py-3 pl-4 pr-3"
                       >
                         <PostComment
                           comment={reply}

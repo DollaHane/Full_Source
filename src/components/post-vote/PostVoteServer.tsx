@@ -1,12 +1,13 @@
-import { getAuthSession } from '@/src/lib/auth'
-import type { Post, Vote } from '@prisma/client'
-import { notFound } from 'next/navigation'
-import PostVoteClient from './PostVoteClient'
+import { notFound } from "next/navigation"
+import { getAuthSession } from "@/src/lib/auth"
+import type { Post, Vote } from "@prisma/client"
+
+import PostVoteClient from "./PostVoteClient"
 
 interface PostVoteServerProps {
   postId: string
   initialVotesAmt?: number
-  initialVote?: Vote['type'] | null
+  initialVote?: Vote["type"] | null
   getData?: () => Promise<(Post & { votes: Vote[] }) | null>
 }
 
@@ -19,7 +20,7 @@ const PostVoteServer = async ({
   const session = await getAuthSession()
 
   let _votesAmt: number = 0
-  let _currentVote: Vote['type'] | null | undefined = undefined
+  let _currentVote: Vote["type"] | null | undefined = undefined
 
   if (getData) {
     // fetch data in component
@@ -27,8 +28,8 @@ const PostVoteServer = async ({
     if (!post) return notFound()
 
     _votesAmt = post.votes.reduce((acc, vote) => {
-      if (vote.type === 'UP') return acc + 1
-      if (vote.type === 'DOWN') return acc - 1
+      if (vote.type === "UP") return acc + 1
+      if (vote.type === "DOWN") return acc - 1
       return acc
     }, 0)
 

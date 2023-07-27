@@ -1,27 +1,28 @@
-'use client'
+"use client"
+
 import React from "react"
+import { Copy } from "lucide-react"
+
 import { Button } from "../components-ui/Button"
-import { Copy } from 'lucide-react'
 
 export default function CustomCodeRenderer({ data }: any) {
-  (data)
+  data
 
   const text = data.code
 
   return (
-    <pre className='w-full flex relative bg-capecod-600 rounded-md p-4'>
-      <code className='text-capecod-50 text-sm'>{data.code}</code>
+    <pre className="relative flex w-full rounded-md bg-capecod-600 p-4">
+      <code className="text-sm text-capecod-50">{data.code}</code>
       <Button
-        className='hover:bg-transparent absolute top-1 right-1'
+        className="absolute right-1 top-1 hover:bg-transparent"
         onClick={() => {
-          navigator.clipboard.writeText(text);}}
-        size='sm'
-        variant='ghost'>
-        <Copy className="text-capecod-50"/>
+          navigator.clipboard.writeText(text)
+        }}
+        size="sm"
+        variant="ghost"
+      >
+        <Copy className="text-capecod-50" />
       </Button>
     </pre>
   )
 }
-
-
-

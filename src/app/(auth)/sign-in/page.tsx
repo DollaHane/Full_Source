@@ -1,10 +1,10 @@
-import SignIn from '@/src/components/pageSignin/SignIn'
-import { FC } from 'react'
+import { FC } from "react"
+import SignIn from "@/src/components/pageSignin/SignIn"
 
 const page: FC = () => {
   return (
-    <div className='absolute inset-0'>
-      <div className='h-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-20'>
+    <div className="absolute inset-0">
+      <div className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center gap-20">
         <SignIn />
       </div>
     </div>

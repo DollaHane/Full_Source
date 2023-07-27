@@ -5,7 +5,6 @@ module.exports = {
   singleQuote: false,
   tabWidth: 2,
   plugins: ['prettier-plugin-tailwindcss'],
-  tailwindConfig: './styles/tailwind.config.js',
   trailingComma: "es5",
   importOrder: [
     "^(react/(.*)$)|^(react$)",

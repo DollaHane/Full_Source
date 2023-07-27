@@ -1,16 +1,16 @@
+import React from "react"
+import GeneralFeed from "@/src/components/pageHome/GeneralFeed"
 
-import React from 'react'
-import { NavBar } from '../../components/NavBar'
-import GeneralFeed from '@/src/components/pageHome/GeneralFeed'
+import { NavBar } from "../../components/NavBar"
 
 export default function Home() {
   return (
-    <div className='w-full h-auto'>
+    <div className="h-auto w-full">
       {/* NAVBAR */}
-      <NavBar/>
+      <NavBar />
 
       {/* FEED */}
-      <GeneralFeed/>
+      <GeneralFeed />
     </div>
   )
 }

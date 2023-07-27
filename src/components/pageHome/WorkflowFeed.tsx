@@ -1,22 +1,23 @@
-'use client'
-import { ExtendedPost } from '@/src/types/db'
-import WorkflowComponent from './WorkflowComponent'
-import { useSession } from 'next-auth/react'
+"use client"
+
+import { ExtendedPost } from "@/src/types/db"
+import { useSession } from "next-auth/react"
+
+import WorkflowComponent from "./WorkflowComponent"
 
 interface PostFeedProps {
   posts: ExtendedPost[]
 }
 
-export default function WorkflowFeed ({ posts }: PostFeedProps) {
-
+export default function WorkflowFeed({ posts }: PostFeedProps) {
   const { data: session } = useSession()
 
   return (
-    <ul className='flex flex-col col-span-2 space-y-10 mt-10 mb-44'>
+    <ul className="col-span-2 mb-44 mt-10 flex flex-col space-y-10">
       {posts.map((post) => {
         const votesAmt = post.votes.reduce((acc, vote) => {
-          if (vote.type === 'UP') return acc + 1
-          if (vote.type === 'DOWN') return acc - 1
+          if (vote.type === "UP") return acc + 1
+          if (vote.type === "DOWN") return acc - 1
           return acc
         }, 0)
 
@@ -33,9 +34,7 @@ export default function WorkflowFeed ({ posts }: PostFeedProps) {
             currentVote={currentVote}
           />
         )
-        
       })}
     </ul>
   )
 }
-

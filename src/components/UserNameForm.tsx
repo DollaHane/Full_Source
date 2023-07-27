@@ -1,13 +1,18 @@
-'use client'
+"use client"
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { User } from '@prisma/client'
-import { useRouter } from 'next/navigation'
-import * as React from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+import * as React from "react"
+import { useRouter } from "next/navigation"
+import { cn } from "@/src/lib/utils"
+import { UsernameValidator } from "@/src/lib/validators/username"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { User } from "@prisma/client"
+import { useMutation } from "@tanstack/react-query"
+import axios, { AxiosError } from "axios"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
-import { Button } from './components-ui/Button'
+import { toast } from "../hooks/use-toast"
+import { Button } from "./components-ui/Button"
 import {
   Card,
   CardContent,
@@ -15,17 +20,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './components-ui/Card'
-import { Input } from './components-ui/Input'
-import { Label } from './components-ui/Label'
-import { toast } from '../hooks/use-toast'
-import { cn } from '@/src/lib/utils'
-import { UsernameValidator } from '@/src/lib/validators/username'
-import { useMutation } from '@tanstack/react-query'
-import axios, { AxiosError } from 'axios'
+} from "./components-ui/Card"
+import { Input } from "./components-ui/Input"
+import { Label } from "./components-ui/Label"
 
 interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  user: Pick<User, 'id' | 'username'>
+  user: Pick<User, "id" | "username">
 }
 
 type FormData = z.infer<typeof UsernameValidator>
@@ -39,7 +39,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
   } = useForm<FormData>({
     resolver: zodResolver(UsernameValidator),
     defaultValues: {
-      name: user?.username || '',
+      name: user?.username || "",
     },
   })
 
@@ -54,22 +54,22 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       if (err instanceof AxiosError) {
         if (err.response?.status === 409) {
           return toast({
-            title: 'Username already taken.',
-            description: 'Please choose another username.',
-            variant: 'destructive',
+            title: "Username already taken.",
+            description: "Please choose another username.",
+            variant: "destructive",
           })
         }
       }
 
       return toast({
-        title: 'Something went wrong.',
-        description: 'Your username was not updated. Please try again.',
-        variant: 'destructive',
+        title: "Something went wrong.",
+        description: "Your username was not updated. Please try again.",
+        variant: "destructive",
       })
     },
     onSuccess: () => {
       toast({
-        description: 'Your username has been updated.',
+        description: "Your username has been updated.",
       })
       router.refresh()
     },
@@ -79,7 +79,8 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     <form
       className={cn(className)}
       onSubmit={handleSubmit((e) => updateUsername(e))}
-      {...props}>
+      {...props}
+    >
       <Card>
         <CardHeader>
           <CardTitle>Username</CardTitle>
@@ -88,27 +89,27 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className='relative grid gap-1'>
-            <div className='absolute top-0 left-0 w-8 h-10 grid place-items-center'>
-              <span className='text-sm text-zinc-400'></span>
+          <div className="relative grid gap-1">
+            <div className="absolute left-0 top-0 grid h-10 w-8 place-items-center">
+              <span className="text-sm text-zinc-400"></span>
             </div>
-            <Label className='sr-only' htmlFor='name'>
+            <Label className="sr-only" htmlFor="name">
               Name
             </Label>
             <Input
-              id='name'
-              className='w-[400px] pl-6 bg-secondary'
+              id="name"
+              className="w-[400px] bg-secondary pl-6"
               size={32}
-              {...register('name')}
+              {...register("name")}
             />
             {errors?.name && (
-              <p className='px-1 text-xs text-red-600'>{errors.name.message}</p>
+              <p className="px-1 text-xs text-red-600">{errors.name.message}</p>
             )}
           </div>
         </CardContent>
         <CardFooter>
-          <Button 
-            className='w-40 mt-5 bg-capecod-600 hover:bg-background text-zinc-50 hover:text-primary shadow-lg rounded-full hover:border border-cyan-500'
+          <Button
+            className="mt-5 w-40 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-background hover:text-primary"
             isLoading={isLoading}
           >
             Change name

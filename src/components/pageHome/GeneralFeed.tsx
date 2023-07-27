@@ -1,13 +1,13 @@
-import { db } from '@/src/lib/db'
-import { Post } from '@prisma/client';
-import WorkflowFeed from './WorkflowFeed'
-import NpmFeed from './NpmFeed';
+import { db } from "@/src/lib/db"
+import { Post } from "@prisma/client"
+
+import NpmFeed from "./NpmFeed"
+import WorkflowFeed from "./WorkflowFeed"
 
 export default async function GeneralFeed() {
-
   const posts = await db.post.findMany({
     orderBy: {
-      index: 'asc',
+      index: "asc",
     },
     include: {
       votes: true,
@@ -16,34 +16,31 @@ export default async function GeneralFeed() {
     },
   })
 
-  console.log('Posts:', posts)
+  console.log("Posts:", posts)
 
   const formatWorkflowPosts = (posts: Post) => {
-    return posts?.categorydoc === 'Workflow'
-  };
+    return posts?.categorydoc === "Workflow"
+  }
 
   const formatNpmPosts = (posts: Post) => {
-    return posts?.type === 'NPM Link'
-  };
+    return posts?.type === "NPM Link"
+  }
 
   const workflowPosts = posts.filter(formatWorkflowPosts)
   const npmPosts = posts.filter(formatNpmPosts)
-  console.log('npmPosts:', npmPosts)
-
+  console.log("npmPosts:", npmPosts)
 
   return (
-    <div className='flex flex-row justify-between'>
-      <div className='w-2/12 h-[100vh] ml-5 border-r border-secondary'>
+    <div className="flex flex-row justify-between">
+      <div className="ml-5 h-[100vh] w-2/12 border-r border-secondary">
         Side Nav
       </div>
-      <div className='w-6/12'>
+      <div className="w-6/12">
         <WorkflowFeed posts={workflowPosts} />
       </div>
-      <div className='w-3/12 border-l border-secondary'>
-        <NpmFeed posts={npmPosts}/>
+      <div className="w-3/12 border-l border-secondary">
+        <NpmFeed posts={npmPosts} />
       </div>
     </div>
-    ) 
+  )
 }
-
-
