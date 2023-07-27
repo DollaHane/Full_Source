@@ -18,6 +18,7 @@ export default async function SettingsPage() {
 
   return (
     <div>
+      {/* @ts-expect-error Server Component */}
       <NavBar />
       <div className="mx-auto w-4/5 max-w-4xl py-12">
         <div className="grid items-start gap-8">

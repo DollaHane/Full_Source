@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div>
       {/* NAVBAR */}
+      {/* @ts-expect-error Server Component */}
       <NavBar />
 
       {/* PAGE */}

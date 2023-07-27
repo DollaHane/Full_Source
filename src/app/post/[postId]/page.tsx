@@ -45,6 +45,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
   return (
     <div>
       {/* NAVBAR */}
+      {/* @ts-expect-error Server Component */}
       <NavBar />
 
       <div className="mx-auto mb-44 mt-5 flex h-full w-4/5 flex-col items-center justify-between sm:flex-row sm:items-start">

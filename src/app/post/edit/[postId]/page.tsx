@@ -26,6 +26,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
   return (
     <div>
       {/* NAVBAR */}
+      {/* @ts-expect-error Server Component */}
       <NavBar />
 
       {/* PAGE */}
