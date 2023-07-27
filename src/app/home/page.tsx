@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import { db } from "@/src/lib/db"
 import { MainNav } from "@/src/components/MainNav"
 import { UserAccountNav } from "@/src/components/UserAccountNav"
 import { ThemeToggle } from "@/src/components/components-global/theme-toggle"
@@ -11,6 +12,13 @@ import { getServerSession } from "next-auth"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
+
+  const user = await db.user.findUnique({
+    where: {
+      email: session?.user.email as string | undefined,
+    },
+  })
+
   return (
     <div className="h-auto w-full">
       <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -19,8 +27,8 @@ export default async function Home() {
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-5">
               {/* SIGN IN */}
-              {session?.user ? (
-                <UserAccountNav user={session.user} />
+              {session?.user && user ? (
+                <UserAccountNav user={session.user} admin={user.admin}/>
               ) : (
                 <Link href="/sign-in" className={buttonVariants()}>
                   Sign In

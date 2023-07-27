@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { User } from ".prisma/client"
+import { User } from "next-auth"
 import { signOut } from "next-auth/react"
 
 import {
@@ -14,10 +14,11 @@ import {
 import { UserAvatar } from "./components-ui/UserAvatar"
 
 interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-  user: Pick<User, "name" | "image" | "email" | "admin">
+  user: Pick<User, "name" | "image" | "email">
+  admin: boolean
 }
 
-export function UserAccountNav({ user }: UserAccountNavProps) {
+export function UserAccountNav({ user, admin }: UserAccountNavProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -41,7 +42,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
 
         <DropdownMenuSeparator />
 
-        {user.admin === true && (
+        {admin === true && (
           <DropdownMenuItem asChild>
             <Link href="/post/create">Create Post</Link>
           </DropdownMenuItem>

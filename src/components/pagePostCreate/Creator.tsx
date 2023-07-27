@@ -1,5 +1,4 @@
 "use client"
-
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { docList, npmList } from "@/src/lib/postSelections"
@@ -12,11 +11,11 @@ import axios from "axios"
 import { useForm } from "react-hook-form"
 import TextareaAutosize from "react-textarea-autosize"
 import { z } from "zod"
-
 import { toast } from "../../hooks/use-toast"
 import "../../styles/editor.css"
 
 type FormData = z.infer<typeof PostValidator>
+
 
 export default function Creator() {
   // Toggle Category Selection
@@ -70,7 +69,6 @@ export default function Creator() {
       }
       const { data } = await axios.post("/api/post/create", payload)
 
-      console.log("Data:", data)
       return data
     },
 
@@ -128,7 +126,7 @@ export default function Creator() {
             config: {
               uploader: {
                 async uploadByFile(file: File) {
-                  const [res] = await uploadFiles([file], "imageUploader")
+                  const [res] = await uploadFiles([file], 'imageUploader')
                   return {
                     success: 1,
                     file: {

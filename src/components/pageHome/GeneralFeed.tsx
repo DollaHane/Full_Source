@@ -5,6 +5,7 @@ import NpmFeed from "./NpmFeed"
 import WorkflowFeed from "./WorkflowFeed"
 
 export default async function GeneralFeed() {
+  
   const posts = await db.post.findMany({
     orderBy: {
       index: "asc",
@@ -16,8 +17,6 @@ export default async function GeneralFeed() {
     },
   })
 
-  console.log("Posts:", posts)
-
   const formatWorkflowPosts = (posts: Post) => {
     return posts?.categorydoc === "Workflow"
   }
@@ -28,7 +27,6 @@ export default async function GeneralFeed() {
 
   const workflowPosts = posts.filter(formatWorkflowPosts)
   const npmPosts = posts.filter(formatNpmPosts)
-  console.log("npmPosts:", npmPosts)
 
   return (
     <div className="flex flex-row justify-between">
