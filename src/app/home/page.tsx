@@ -43,7 +43,7 @@ export default async function Home() {
       </header>
 
       {/* FEED */}
-      <GeneralFeed />
+      {<GeneralFeed />}
     </div>
   )
 }
