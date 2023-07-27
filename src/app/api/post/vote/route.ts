@@ -2,7 +2,7 @@ import { getAuthSession } from '@/src/lib/auth'
 import { db } from '@/src/lib/db'
 import { redis } from '@/src/lib/redis'
 import { PostVoteValidator } from '@/src/lib/validators/vote'
-import { CachedPost } from '@/types/redis'
+import { CachedPost } from '@/src/types/redis'
 import { z } from 'zod'
 
 const CACHE_AFTER_UPVOTES = 1
@@ -68,6 +68,7 @@ export async function PATCH(req: Request) {
             title: post.title,
             currentVote: null,
             createdAt: post.createdAt,
+            updatedAt: post.updatedAt
           }
 
           await redis.hset(`post:${postId}`, cachePayload) // Store the post data as a hash
@@ -104,6 +105,7 @@ export async function PATCH(req: Request) {
           title: post.title,
           currentVote: voteType,
           createdAt: post.createdAt,
+          updatedAt: post.updatedAt
         }
 
         await redis.hset(`post:${postId}`, cachePayload) // Store the post data as a hash
@@ -136,6 +138,7 @@ export async function PATCH(req: Request) {
         title: post.title,
         currentVote: voteType,
         createdAt: post.createdAt,
+        updatedAt: post.updatedAt
       }
 
       await redis.hset(`post:${postId}`, cachePayload) // Store the post data as a hash
