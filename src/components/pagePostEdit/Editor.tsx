@@ -14,7 +14,6 @@ import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { npmList } from '@/src/lib/postSelections'
 import { docList } from '@/src/lib/postSelections'
-import { typeList } from '@/src/lib/postSelections'
 import '../../styles/editor.css'
 
 type FormData = z.infer<typeof PostValidator>
@@ -33,10 +32,6 @@ export default function Editor({ post, params }: EditPageProps) {
   const [postType, setPostType] = useState<string>(post.type)
 
   const postId = params.postId
-  const type = post.type
-  const categorydoc = post.categorydoc
-  const categorynpm = post.categorynpm
-  const index = post.index
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(PostValidator),
