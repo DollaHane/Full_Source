@@ -15,11 +15,13 @@ export const docList = [
 
 export const npmList = [
   "N/A",
+  "Init Developement", 
   "Framework", 
+  "Database", 
   "Backend", 
   "Authentication", 
   "State Management", 
-  "Form & Validation", 
+  "Forms & Validation", 
   "Libraries", 
   "Animation", 
   "Services",
