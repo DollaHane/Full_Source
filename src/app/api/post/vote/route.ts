@@ -10,6 +10,7 @@ const CACHE_AFTER_UPVOTES = 1
 export async function PATCH(req: Request) {
   try {
     const body = await req.json()
+    console.log('vote api body:', body)
 
     const { postId, voteType } = PostVoteValidator.parse(body)
 
@@ -152,7 +153,7 @@ export async function PATCH(req: Request) {
     }
 
     return new Response(
-      'Could not post to subreddit at this time. Please try later',
+      'Could not post at this time. Please try later',
       { status: 500 }
     )
   }

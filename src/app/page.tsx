@@ -44,7 +44,7 @@ export default async function IndexPage() {
             <Link href="/home">
               <Button
                 variant="outline"
-                className="mx-auto mt-10 flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-background"
+                className="mx-auto mt-10 flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-rose-400"
               >
                 GET STARTED
               </Button>
@@ -54,7 +54,7 @@ export default async function IndexPage() {
           <Link href="/sign-in">
             <Button
               variant="outline"
-              className="mx-auto mt-10 flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-background"
+              className="mx-auto mt-10 flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-rose-400"
             >
               SIGN IN
             </Button>
