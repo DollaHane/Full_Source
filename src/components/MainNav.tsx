@@ -18,7 +18,7 @@ export function MainNav({ items }: MainNavProps) {
         <Image alt="logo" src={FS} className="mx-auto h-9 w-9 content-center" />
       </div>
       <Link
-        href="/home"
+        href="/"
         className="flex items-center space-x-2 bg-gradient-to-r from-rose-400 via-cyan-500 to-green-500 bg-clip-text bg-repeat-x text-transparent"
       >
         <span className="inline-block font-prompt font-bold">
