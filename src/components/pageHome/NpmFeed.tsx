@@ -55,7 +55,7 @@ export default function NpmFeed({ posts }: NpmFeedProps) {
       <hr></hr>
       <h1 className="text-xl font-bold">Forms & Validation:</h1>
       {posts?.map((post) => {
-        if (post.categorynpm === "Form & Validation") {
+        if (post.categorynpm === "Forms & Validation") {
           return <NpmComponent key={post.id} post={post} />
         }
       })}
