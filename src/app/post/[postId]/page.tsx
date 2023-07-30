@@ -67,8 +67,8 @@ export default async function PostPageContent({ params }: PostPageProps) {
 
       <div className="flex flex-row">
         {/* SIDEBAR */}
-        {/* @ts-expect-error Server Component */}
         <div className="w-2/12">
+          {/* @ts-expect-error Server Component */}
           <SideNav workflowPosts={workflowPosts} />
         </div>
 
