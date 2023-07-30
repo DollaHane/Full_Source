@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import { NavBar } from "@/src/components/NavBar"
+import { SideNav } from "@/src/components/SideNav"
 import { Button, buttonVariants } from "@/src/components/components-ui/Button"
 import CommentsSection from "@/src/components/pagePost/CommentsSection"
 import EditorOutput from "@/src/components/pagePost/EditorOutput"
@@ -42,69 +43,93 @@ export default async function PostPageContent({ params }: PostPageProps) {
 
   if (!post && !cachedPost) return notFound()
 
+  const posts = await db.post.findMany({
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const formatWorkflowPosts = (posts: Post) => {
+    return posts?.categorydoc === "Workflow"
+  }
+  const workflowPosts = posts.filter(formatWorkflowPosts)
+
   return (
     <div>
       {/* NAVBAR */}
       {/* @ts-expect-error Server Component */}
       <NavBar />
 
-      <div className="mx-auto mb-44 mt-5 flex h-full w-4/5 flex-col items-center justify-between sm:flex-row sm:items-start">
-        <Suspense fallback={<PostVoteShell />}></Suspense>
+      <div className="flex flex-row">
+        {/* SIDEBAR */}
+        {/* @ts-expect-error Server Component */}
+        <div className="w-2/12">
+          <SideNav workflowPosts={workflowPosts} />
+        </div>
 
-        <div className="w-full flex-1 rounded-sm bg-background p-2 sm:w-0">
-          <div className="flex w-full justify-between">
-            <h1 className="py-2 font-prompt text-2xl font-semibold leading-6 text-cyan-500">
-              {post?.title ?? cachedPost.title}
+        <div className="mb-44 mt-5 flex h-full w-9/12 p-5 flex-col items-center justify-between sm:flex-row sm:items-start">
+          <Suspense fallback={<PostVoteShell />}></Suspense>
+
+          <div className="w-full flex-1 rounded-sm bg-background sm:w-0">
+            <div className="flex w-full justify-between">
+              <h1 className="py-2 font-prompt text-2xl font-semibold leading-6 text-cyan-500">
+                {post?.title ?? cachedPost.title}
+              </h1>
+
+              <a href={`/post/edit/${params.postId}`}>
+                <Button
+                  type="submit"
+                  className="w-20 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-background hover:text-primary"
+                  form="workflow-update-form"
+                >
+                  Edit
+                </Button>
+              </a>
+            </div>
+
+            <h1 className="mt-5 py-2 font-prompt text-xl leading-6 text-primary">
+              {post?.description ?? cachedPost.description}
             </h1>
 
-            <a href={`/post/edit/${params.postId}`}>
-              <Button
-                type="submit"
-                className="w-20 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-background hover:text-primary"
-                form="workflow-update-form"
-              >
-                Edit
-              </Button>
-            </a>
+            <p className="mb-5 mt-1 max-h-40 truncate text-xs text-capecod-500">
+              Last updated by {post?.author.username ?? cachedPost.authorUsername}{" "}
+              {formatTimeToNow(new Date(post?.updatedAt ?? cachedPost.updatedAt))}
+            </p>
+            <hr className="mb-10" />
+
+            <EditorOutput content={post?.content ?? cachedPost.content} />
+
+            <div className="mt-5 flex flex-col gap-2">
+              {/* @ts-expect-error Server Component */}
+              <PostVoteServer
+                postId={post?.id ?? cachedPost.id}
+                getData={async () => {
+                  return await db.post.findUnique({
+                    where: {
+                      id: params.postId,
+                    },
+                    include: {
+                      votes: true,
+                    },
+                  })
+                }}
+              />
+            </div>
+
+            <Suspense
+              fallback={
+                <Loader2 className="h-5 w-5 animate-spin text-capecod-300" />
+              }
+            >
+              {/* @ts-expect-error Server Component */}
+              <CommentsSection postId={params.postId ?? cachedPost.id} />
+            </Suspense>
           </div>
-
-          <h1 className="mt-5 py-2 font-prompt text-xl leading-6 text-primary">
-            {post?.description ?? cachedPost.description}
-          </h1>
-
-          <p className="mb-5 mt-1 max-h-40 truncate text-xs text-capecod-500">
-            Last updated by {post?.author.username ?? cachedPost.authorUsername}{" "}
-            {formatTimeToNow(new Date(post?.updatedAt ?? cachedPost.updatedAt))}
-          </p>
-          <hr className="mb-10"/>
-
-          <EditorOutput content={post?.content ?? cachedPost.content} />
-
-          <div className="mt-5 flex flex-col gap-2">
-            {/* @ts-expect-error Server Component */}
-            <PostVoteServer
-              postId={post?.id ?? cachedPost.id}
-              getData={async () => {
-                return await db.post.findUnique({
-                  where: {
-                    id: params.postId,
-                  },
-                  include: {
-                    votes: true,
-                  },
-                })
-              }}
-            />
-          </div>
-
-          <Suspense
-            fallback={
-              <Loader2 className="h-5 w-5 animate-spin text-capecod-300" />
-            }
-          >
-            {/* @ts-expect-error Server Component */}
-            <CommentsSection postId={params.postId ?? cachedPost.id} />
-          </Suspense>
         </div>
       </div>
     </div>

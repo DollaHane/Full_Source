@@ -29,6 +29,9 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
       postId: postId,
       replyToId: null, // only fetch top-level comments
     },
+    orderBy: {
+      createdAt: "desc",
+    },
     include: {
       author: true,
       votes: true,
