@@ -1,5 +1,4 @@
 import { Post } from "@prisma/client"
-
 import NpmComponent from "./NpmComponent"
 
 interface NpmFeedProps {
@@ -10,7 +9,7 @@ export default function NpmFeed({ posts }: NpmFeedProps) {
   console.log("Posts:", posts)
 
   return (
-    <ul className="h-full fixed overflow-scroll col-span-2 mx-5 mb-44 mt-10 flex flex-col space-y-5">
+    <ul className="fixed col-span-2 mx-5 mb-44 mt-10 flex h-full flex-col space-y-5 overflow-scroll">
       <h1 className="text-xl font-bold">Init Developement:</h1>
       {posts?.map((post) => {
         if (post.categorynpm === "Init Developement") {

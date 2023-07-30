@@ -130,7 +130,14 @@ export default function Editor({ post, params }: EditPageProps) {
         inlineToolbar: true,
         data: { blocks: post.content.blocks },
         tools: {
-          header: Header,
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header',
+              levels: [1, 2, 3],
+              defaultLevel: 1
+            }
+          },
           linkTool: {
             class: LinkTool,
             config: {

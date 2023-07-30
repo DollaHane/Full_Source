@@ -13,7 +13,7 @@ export default function WorkflowFeed({ posts }: PostFeedProps) {
   const { data: session } = useSession()
 
   return (
-    <ul className="col-span-2 mb-44 mt-10 flex flex-col space-y-10">
+    <ul className="mx-5 mb-44 mt-10 flex h-full flex-col space-y-5">
       {posts.map((post) => {
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === "UP") return acc + 1

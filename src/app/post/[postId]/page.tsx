@@ -53,9 +53,10 @@ export default async function PostPageContent({ params }: PostPageProps) {
 
         <div className="w-full flex-1 rounded-sm bg-background p-2 sm:w-0">
           <div className="flex w-full justify-between">
-            <h1 className="py-2 font-prompt text-xl font-semibold leading-6 text-cyan-500">
+            <h1 className="py-2 font-prompt text-2xl font-semibold leading-6 text-cyan-500">
               {post?.title ?? cachedPost.title}
             </h1>
+
             <a href={`/post/edit/${params.postId}`}>
               <Button
                 type="submit"
@@ -67,10 +68,15 @@ export default async function PostPageContent({ params }: PostPageProps) {
             </a>
           </div>
 
-          <p className="mb-2 mt-5 max-h-40 truncate text-xs text-capecod-500">
+          <h1 className="mt-5 py-2 font-prompt text-xl leading-6 text-primary">
+            {post?.description ?? cachedPost.description}
+          </h1>
+
+          <p className="mb-5 mt-1 max-h-40 truncate text-xs text-capecod-500">
             Last updated by {post?.author.username ?? cachedPost.authorUsername}{" "}
             {formatTimeToNow(new Date(post?.updatedAt ?? cachedPost.updatedAt))}
           </p>
+          <hr className="mb-10"/>
 
           <EditorOutput content={post?.content ?? cachedPost.content} />
 
