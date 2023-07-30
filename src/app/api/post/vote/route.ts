@@ -67,6 +67,7 @@ export async function PATCH(req: Request) {
             content: JSON.stringify(post.content),
             id: post.id,
             title: post.title,
+            description: post.description,
             currentVote: null,
             createdAt: post.createdAt,
             updatedAt: post.updatedAt
@@ -104,6 +105,7 @@ export async function PATCH(req: Request) {
           content: JSON.stringify(post.content),
           id: post.id,
           title: post.title,
+          description: post.description,
           currentVote: voteType,
           createdAt: post.createdAt,
           updatedAt: post.updatedAt
@@ -137,6 +139,7 @@ export async function PATCH(req: Request) {
         content: JSON.stringify(post.content),
         id: post.id,
         title: post.title,
+        description: post.description,
         currentVote: voteType,
         createdAt: post.createdAt,
         updatedAt: post.updatedAt
