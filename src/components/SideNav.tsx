@@ -8,7 +8,7 @@ interface SideNavProps {
 export async function SideNav({ workflowPosts }: SideNavProps) {
 
   return (
-    <div className="h-full min-w-44 overflow-scroll mx-5 mb-44 mt-10">
+    <div className="h-full mx-5 mb-44 mt-10">
         <nav className="flex flex-col items-left space-x-5">
           <div>
             <a href='/home'>
