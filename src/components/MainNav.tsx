@@ -2,7 +2,6 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { siteConfig } from "@/src/config/site"
-import { cn } from "@/src/lib/utils"
 import { NavItem } from "@/src/types/types"
 
 import FS from "../assets/FS-Logo.png"
