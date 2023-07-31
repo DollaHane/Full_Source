@@ -11,6 +11,7 @@ import { buttonVariants } from "./components-ui/Button"
 export async function NavBar() {
   const session = await getServerSession(authOptions)
 
+  
   const user = await db.user.findUnique({
     where: {
       email: session?.user.email as string | undefined,

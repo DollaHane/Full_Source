@@ -18,7 +18,7 @@ export default function NpmComponent({ post }: PostProps) {
       <a href={`/post/${post.id}`}>
         <h1 className="text-sm text-primary hover:text-cyan-500">{post.title}</h1>
       </a>
-      <pre className="relative flex w-8/12 rounded bg-capecod-600 p-2 shadow-sm">
+      <pre className="relative flex w-full rounded bg-capecod-600 p-2 shadow-sm">
         <code className="truncate text-xs text-capecod-50">
           {post.description}
         </code>

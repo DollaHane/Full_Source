@@ -37,19 +37,19 @@ export default async function Home() {
 
       <div className="flex w-full">
         {/* SIDENAV */}
-        <div className="w-2/12">
+        <div>
           {/* @ts-expect-error Server Component */}
           <SideNav workflowPosts={workflowPosts} />
         </div>
 
         {/* FEED */}
         <div className="flex w-full justify-between">
-          <div className="w-8/12">
+          
             <WorkflowFeed posts={workflowPosts} />
-          </div>
-          <div className="w-4/12 border-l border-secondary">
+          
+          
             <NpmFeed posts={npmPosts} />
-          </div>
+          
         </div>
       </div>
     </div>

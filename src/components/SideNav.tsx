@@ -1,3 +1,4 @@
+'use client'
 import { ExtendedPost } from "../types/db"
 import {
   Accordion,
@@ -11,6 +12,9 @@ interface SideNavProps {
 }
 
 export async function SideNav({ workflowPosts }: SideNavProps) {
+
+  
+
   return (
     <div className="mx-5 mb-44 mt-10 h-full">
       <nav className="items-left flex flex-col space-x-5">
