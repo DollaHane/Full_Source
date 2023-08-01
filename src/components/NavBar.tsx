@@ -33,6 +33,7 @@ export async function NavBar() {
               </Link>
             )}
 
+
             {/* THEME BUTTON */}
             <ThemeToggle />
           </nav>
@@ -41,3 +42,5 @@ export async function NavBar() {
     </header>
   )
 }
+
+

@@ -3,8 +3,8 @@ import { NavBar } from "@/src/components/NavBar"
 import { SideNav } from "@/src/components/SideNav"
 import NpmFeed from "@/src/components/pageHome/NpmFeed"
 import WorkflowFeed from "@/src/components/pageHome/WorkflowFeed"
-import { Post } from "@prisma/client"
 import { db } from "@/src/lib/db"
+import { Post } from "@prisma/client"
 
 export default async function Home() {
   const posts = await db.post.findMany({
@@ -44,12 +44,8 @@ export default async function Home() {
 
         {/* FEED */}
         <div className="flex w-full justify-between">
-          
-            <WorkflowFeed posts={workflowPosts} />
-          
-          
-            <NpmFeed posts={npmPosts} />
-          
+          <WorkflowFeed posts={workflowPosts} />
+          <NpmFeed posts={npmPosts} />
         </div>
       </div>
     </div>

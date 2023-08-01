@@ -1,4 +1,4 @@
-import { getAuthSession } from '@/src/lib/auth'
+
 import { db } from '@/src/lib/db'
 import { z } from 'zod'
 
