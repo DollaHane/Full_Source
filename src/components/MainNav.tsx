@@ -20,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
         href="/"
         className="flex items-center space-x-2 bg-gradient-to-r from-rose-400 via-cyan-500 to-green-500 bg-clip-text bg-repeat-x text-transparent"
       >
-        <span className="inline-block text-3xl font-prompt font-bold">
+        <span className="inline-block text-lg md:text-3xl font-prompt font-bold">
           {siteConfig.name}
         </span>
       </Link>

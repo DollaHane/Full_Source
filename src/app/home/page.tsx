@@ -45,6 +45,7 @@ export default async function Home() {
         {/* FEED */}
         <div className="flex w-full justify-between">
           <WorkflowFeed posts={workflowPosts} />
+          <div className="h-screen w-[30%] min-w-[200px]"></div>
           <NpmFeed posts={npmPosts} />
         </div>
       </div>

@@ -28,17 +28,17 @@ export default function Workflow({
       <div className="flex justify-between py-2">
         <div className="w-0 flex-1">
           <div className="group flex flex-row gap-2">
-            <h1 className="py-2 font-prompt text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
+            <h1 className="py-2 font-prompt md:text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
               {post.index} -
             </h1>
             <a href={`/post/${post.id}`}>
-              <h1 className="py-2 font-prompt text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
+              <h1 className="py-2 font-prompt md:text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
                 {post.title}
               </h1>
             </a>
           </div>
 
-          <div className="relative max-h-40 w-full text-clip text-sm">
+          <div className="relative max-h-40 w-full text-clip md:text-base text-xs">
             <p>{post.description}</p>
           </div>
 
