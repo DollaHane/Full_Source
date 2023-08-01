@@ -8,7 +8,7 @@ interface NpmFeedProps {
 
 export default function NpmFeed({ posts }: NpmFeedProps) {
   return (
-    <div className="fixed right-0 h-[850px] w-3/12 min-w-[150px] overflow-hidden bg-background pb-5">
+    <div className="fixed right-0 h-[850px] w-3/12 min-w-[150px] overflow-hidden bg-background pb-5 z-30">
       <ul className="col-span-2 mt-10 flex h-full w-full flex-col space-y-5 overflow-scroll  px-5">
         <h1 className="text-sm font-bold text-green-500 md:text-base">
           Init Developement:

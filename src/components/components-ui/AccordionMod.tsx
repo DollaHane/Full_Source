@@ -34,7 +34,7 @@ const AccordionTriggerMod = React.forwardRef<
       {...props}
     >
       {children}
-      <Menu className="h-6 w-6 shrink-0 rotate-90 transition-transform duration-200" />
+      <Menu className="h-6 w-6 shrink-0 transition-transform duration-200" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))

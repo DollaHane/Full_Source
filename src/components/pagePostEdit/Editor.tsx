@@ -249,7 +249,7 @@ export default function Editor({ post, params }: EditPageProps) {
             }}
             {...rest}
             placeholder="Title"
-            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
+            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl md:text-5xl font-bold focus:outline-none"
           />
 
           <hr className="w-full" />
@@ -258,13 +258,13 @@ export default function Editor({ post, params }: EditPageProps) {
           <TextareaAutosize
             {...register("description")}
             placeholder="Description"
-            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-xl focus:outline-none"
+            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-base md:text-xl focus:outline-none"
           />
 
           <hr className="w-full" />
 
           <div className="mt-5 flex flex-row gap-5">
-            <label>
+            <label className="text-sm md:text-base">
               <input
                 className="mx-2 accent-rose-500"
                 type="radio"
@@ -274,7 +274,7 @@ export default function Editor({ post, params }: EditPageProps) {
               />
               Documentation
             </label>
-            <label>
+            <label className="text-sm md:text-base">
               <input
                 className="mx-2 accent-rose-500"
                 type="radio"
@@ -366,7 +366,7 @@ export default function Editor({ post, params }: EditPageProps) {
 
               {/* INDEX */}
               <div>
-                <p className="mb-2">Select Index:</p>
+                <p className="mb-2 text-sm md:text-base">Select Index:</p>
                 <select
                   {...register("index", { valueAsNumber: true })}
                   className="h-8 w-16 rounded bg-secondary p-1 text-center outline-none"
@@ -388,7 +388,7 @@ export default function Editor({ post, params }: EditPageProps) {
           {/* EDITOR AREA */}
           <div
             id="editor"
-            className="flex min-h-[300px] w-full justify-start px-12"
+            className="flex min-h-[200px] w-full justify-start text-sm md:text-base"
           />
 
           <p className="text-sm text-gray-500">

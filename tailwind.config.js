@@ -85,18 +85,18 @@ module.exports = {
         },
         "accordion-left": {
           from: { width: 0 },
-          to: { width: "300px" },
+          to: { width: "400px" },
         },
         "accordion-right": {
-          from: { width: "300px" },
+          from: { width: "400px" },
           to: { width: 0 },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "accordion-left": "accordion-left 0.5s linear",
-        "accordion-right": "accordion-right 0.5s linear",
+        "accordion-left": "accordion-left 0.5s ease-out",
+        "accordion-right": "accordion-right 0.5s ease-out",
       },
     },
   },

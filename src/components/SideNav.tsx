@@ -20,22 +20,22 @@ export async function SideNav({ workflowPosts }: SideNavProps) {
   return (
     <div className="fixed h-full z-50">
       <AccordionMod type="single" collapsible className="h-full backdrop-blur-md pt-3 px-3">
-        <AccordionItemMod value="Menu" className="">
+        <AccordionItemMod value="Menu">
           <AccordionTriggerMod className="h-5"/>
           <AccordionContentMod>
             <nav className="items-left flex flex-col space-x-5">
-              <Accordion type="single" collapsible className="w-[300px]">
+              <Accordion type="single" collapsible className="w-[400px]">
                 <AccordionItem value="home">
                   <div className="flex justify-between">
-                    <a href="/home" className="flex w-1/2">
-                      <p className="my-auto flex h-1/2 w-full text-center">
+                  <AccordionTrigger className="w-6 justify-center"/>
+                    <a href="/home" className="flex w-full">
+                      <p className="my-auto ml-2 flex h-5 w-full text-center justify-start">
                         Home
                       </p>
                     </a>
-                    <AccordionTrigger />
                   </div>
                   <AccordionContent>
-                    <ul className="ml-3 mt-1 flex flex-col gap-2 truncate text-sm">
+                    <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm">
                       {workflowPosts.map((post) => {
                         return (
                           <a
