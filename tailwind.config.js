@@ -85,10 +85,10 @@ module.exports = {
         },
         "accordion-left": {
           from: { width: 0 },
-          to: { width: "180px" },
+          to: { width: "300px" },
         },
         "accordion-right": {
-          from: { width: "180px" },
+          from: { width: "300px" },
           to: { width: 0 },
         },
       },

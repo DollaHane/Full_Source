@@ -18,13 +18,13 @@ interface SideNavProps {
 
 export async function SideNav({ workflowPosts }: SideNavProps) {
   return (
-    <div className="mx-5 mb-44 mt-10 h-full">
-      <AccordionMod type="single" collapsible>
-        <AccordionItemMod value="Menu">
-          <AccordionTriggerMod/>
+    <div className="fixed h-full z-50">
+      <AccordionMod type="single" collapsible className="h-full backdrop-blur-md pt-3 px-3">
+        <AccordionItemMod value="Menu" className="">
+          <AccordionTriggerMod className="h-5"/>
           <AccordionContentMod>
             <nav className="items-left flex flex-col space-x-5">
-              <Accordion type="single" collapsible className="w-44">
+              <Accordion type="single" collapsible className="w-[300px]">
                 <AccordionItem value="home">
                   <div className="flex justify-between">
                     <a href="/home" className="flex w-1/2">
