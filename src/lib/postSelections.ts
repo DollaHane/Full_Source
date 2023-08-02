@@ -6,11 +6,10 @@ export const typeList = [
 export const docList = [
   "N/A",
   "Workflow",
-  "Libraries",
-  "Tools",
-  "Content Creators",
   "How To",
-  "General",
+  "Blog",
+  "Lessons Learnt",
+  "Content Creators",
 ]
 
 export const npmList = [

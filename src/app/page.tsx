@@ -21,13 +21,13 @@ export default async function IndexPage() {
   return (
     <main className="h-full w-full">
       {/* TOP SECTION */}
-      <div className="h-full w-full">
+      <div className="h-full w-full z-40">
         <div className={styles.backgroundA} />
         <div className={styles.backgroundB} />
       </div>
 
       {/* BOTTOM SECTION */}
-      <div className="mt-[35vh] h-full w-full p-10">
+      <div className="mt-[35vh] h-full w-full p-10 z-40">
         <h1 className="mt-5 bg-gradient-to-r from-rose-400 via-cyan-500 to-green-500 bg-clip-text bg-repeat-x text-center font-prompt text-5xl font-bold text-transparent md:text-8xl">
           FULL_SOURCE
         </h1>

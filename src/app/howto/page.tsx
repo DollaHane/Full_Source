@@ -6,10 +6,10 @@ import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 import BackgroundColor from "@/src/components/components-global/BackgroundColor"
 
-export default async function Home() {
+export default async function HowTo() {
   const posts = await db.post.findMany({
     where: {
-      categorydoc: "Workflow",
+      categorydoc: "How To",
     },
     orderBy: {
       index: "asc",
@@ -24,7 +24,7 @@ export default async function Home() {
   return (
     <div className="h-auto w-full">
       <BackgroundColor/>
-
+      
       {/* NAVBAR */}
       {/* @ts-expect-error Server Component */}
       <NavBar />
