@@ -4,7 +4,6 @@ import { SideNav } from "@/src/components/SideNav"
 import NpmFeed from "@/src/components/pageHome/NpmFeed"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
-import BackgroundColor from "@/src/components/components-global/BackgroundColor"
 
 export default async function HowTo() {
   const posts = await db.post.findMany({
@@ -23,7 +22,6 @@ export default async function HowTo() {
 
   return (
     <div className="h-auto w-full">
-      <BackgroundColor/>
       
       {/* NAVBAR */}
       {/* @ts-expect-error Server Component */}
