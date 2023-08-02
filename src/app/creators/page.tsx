@@ -40,6 +40,7 @@ export default async function Creators() {
         <div className="flex w-full justify-between">
           <PostFeed posts={posts} />
           <div className="h-screen w-[30%] min-w-[200px]"></div>
+          {/* @ts-expect-error Server Component */}
           <NpmFeed />
         </div>
       </div>
