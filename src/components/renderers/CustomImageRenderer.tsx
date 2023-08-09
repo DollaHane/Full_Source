@@ -6,10 +6,10 @@ function CustomImageRenderer({ data }: any) {
   const src = data.file.url
 
   return (
-    <div className="relative mx-auto my-5 min-h-[15rem] w-full">
+    <div className="relative mx-auto my-5 min-h-[15rem] w-auto">
       <Image
         alt="image"
-        className="rounded-md object-cover shadow-lg"
+        className="object-contain"
         fill
         src={src}
       />
