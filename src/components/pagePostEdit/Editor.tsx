@@ -148,8 +148,13 @@ export default function Editor({ post, params }: EditPageProps) {
             class: ImageTool,
             config: {
               uploader: {
-                async uploadByFile(file: UploadOptions) {
-                  const [res] = await uploadFiles(file)
+                async uploadByFile(file: File) {
+                  // upload to uploadthing
+                  const [res] = await uploadFiles({
+                    endpoint: "imageUploader",
+                    files: [file],
+                  })
+
                   return {
                     success: 1,
                     file: {

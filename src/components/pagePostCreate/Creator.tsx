@@ -16,14 +16,6 @@ import "../../styles/editor.css"
 
 type FormData = z.infer<typeof PostValidator>
 
-type UploadOptions = {
-  endpoint: "imageUploader"
-  onUploadProgress?: ({ file, progress }: { file: string; progress: number }) => void
-  input?: any
-  files: File[]
-};
-
-
 export default function Creator() {
   // Toggle Category Selection
   const [postType, setPostType] = useState<string>("Documentation")
@@ -139,8 +131,12 @@ export default function Creator() {
             class: ImageTool,
             config: {
               uploader: {
-                async uploadByFile(file: UploadOptions) {
-                  const [res] = await uploadFiles(file)
+                async uploadByFile(file: File) {
+                  // upload to uploadthing
+                  const [res] = await uploadFiles({
+                    endpoint: "imageUploader",
+                    files: [file],
+                  })
                   return {
                     success: 1,
                     file: {
