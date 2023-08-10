@@ -67,7 +67,7 @@ export default function CreateComment({
           placeholder="What are your thoughts?"
         />
 
-        <div className="mt-5 flex justify-end">
+        <div className="mt-5 flex justify-start">
           <Button
             className="w-20 rounded-full border-cyan-500 bg-zinc-600 text-zinc-50 shadow-lg hover:border hover:bg-background hover:text-primary"
             isLoading={isLoading}
