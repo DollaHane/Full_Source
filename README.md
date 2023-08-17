@@ -2,11 +2,12 @@
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 
-## Usage
+## To Do
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+- User can add link to their GitHub repo in the account dropdown menu.
+- Make the NPM sidebar collapseable by category.
+- Improve mobile responsiveness.
+- Improve rendering of certain tools for EditorJS.
 
 ## Features
 
