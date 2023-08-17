@@ -21,7 +21,7 @@ const renderers = {
 
 const style = {
   paragraph: {
-    fontSize: "0.875rem",
+    fontSize: "1rem",
     lineHeight: "1.25rem",
     marginTop: "1rem",
     marginBottom: "0.5rem",
