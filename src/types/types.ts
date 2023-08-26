@@ -5,9 +5,3 @@ export interface NavItem {
   external?: boolean
 }
 
-export enum SelectedPage {
-  Home = "home",
-  Services = "services",
-  Projects = "projects",
-  ContactUs = "contactus",
-}

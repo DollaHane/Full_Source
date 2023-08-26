@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-import Image from "next/image"
 
 function CustomImageRenderer({ data }: any) {
   const src = data.file.url
