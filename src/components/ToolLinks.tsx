@@ -35,7 +35,7 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
       </HoverCard>
       <HoverCard>
         <HoverCardTrigger>
-          <a href="https://github.com/DollaHane/Full_Source" target="_blank">
+          <a href="https://github.com/DollaHane/Full_Source" target="_blank" rel="noreferrer">
             <DiGithubBadge className="h-10 w-10 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
@@ -46,7 +46,7 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
 
       <HoverCard>
         <HoverCardTrigger>
-          <a id="vercel" href="https://vercel.com" target="_blank">
+          <a id="vercel" href="https://vercel.com" target="_blank" rel="noreferrer">
             <SiVercel className="h-8 w-8 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
@@ -59,7 +59,7 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
 
       <HoverCard>
         <HoverCardTrigger>
-          <a href="https://nerdcave.com/tailwind-cheat-sheet" target="_blank">
+          <a href="https://nerdcave.com/tailwind-cheat-sheet" target="_blank" rel="noreferrer">
             <SiTailwindcss className="h-10 w-10 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
