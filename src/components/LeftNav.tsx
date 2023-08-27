@@ -3,7 +3,8 @@
 import React from "react"
 import { Drawer, Group } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
-import { Book, LayoutList, Lightbulb, Menu, User } from "lucide-react"
+import { Book, LayoutList, Lightbulb, User } from "lucide-react"
+import { ImFinder } from "react-icons/im"
 
 import { ExtendedPost } from "../types/db"
 import {
@@ -27,9 +28,9 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
         <Button
           variant={"default"}
           onClick={open}
-          className="ml-5 mt-5 bg-white/0 text-primary border-none"
+          className="ml-5 mt-5 border-none bg-white/0 text-primary"
         >
-          <Menu />
+          <ImFinder className="h-8 w-8" />
         </Button>
       </Group>
       <Drawer
