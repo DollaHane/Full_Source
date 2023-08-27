@@ -4,7 +4,6 @@ import { siteConfig } from "@/src/config/site"
 import { fontSans } from "@/src/lib/fonts"
 import { cn } from "@/src/lib/utils"
 
-import BackgroundColor from "../components/components-global/BackgroundColor"
 import Providers from "../components/components-global/Providers"
 import { TailwindIndicator } from "../components/components-global/tailwind-indicator"
 import { ThemeProvider } from "../components/components-global/theme-provider"
