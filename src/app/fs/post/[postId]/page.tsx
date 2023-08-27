@@ -52,17 +52,15 @@ export default async function PostPageContent({ params }: PostPageProps) {
     },
   })
 
-
   return (
     <div>
       <div className="flex flex-row">
-
-        <div className="mb-44 mt-10 mx-auto flex h-full w-9/12 flex-col items-center justify-between sm:flex-row sm:items-start">
+        <div className="mx-auto mb-44 mt-10 flex h-full w-9/12 flex-col items-center justify-between sm:flex-row sm:items-start">
           <Suspense fallback={<PostVoteShell />}></Suspense>
 
           <div className="w-full flex-1">
             <div className="flex w-full justify-between">
-              <h1 className="py-2 font-prompt text-xl md:text-2xl font-semibold leading-6 text-cyan-500">
+              <h1 className="py-2 font-prompt text-xl font-semibold leading-6 text-cyan-500 md:text-2xl">
                 {post?.title ?? cachedPost.title}
               </h1>
 
@@ -77,13 +75,16 @@ export default async function PostPageContent({ params }: PostPageProps) {
               </a>
             </div>
 
-            <h1 className="mt-5 py-2 font-prompt text-sm md:text-xl leading-6 text-primary">
+            <h1 className="mt-5 py-2 font-prompt text-sm leading-6 text-primary md:text-xl">
               {post?.description ?? cachedPost.description}
             </h1>
 
             <p className="mb-5 mt-1 max-h-40 truncate text-xs text-capecod-500">
-              Last updated by {post?.author.username ?? cachedPost.authorUsername}{" "}
-              {formatTimeToNow(new Date(post?.updatedAt ?? cachedPost.updatedAt))}
+              Last updated by{" "}
+              {post?.author.username ?? cachedPost.authorUsername}{" "}
+              {formatTimeToNow(
+                new Date(post?.updatedAt ?? cachedPost.updatedAt)
+              )}
             </p>
             <hr className="mb-10" />
 

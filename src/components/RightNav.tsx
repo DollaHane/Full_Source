@@ -1,11 +1,13 @@
-'use client'
+"use client"
+
 import React from "react"
-import NpmFeed from "./pageHome/NpmFeed"
-import { Button } from "./components-ui/Button"
 import { Drawer, Group } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { Menu } from "lucide-react"
+
 import { ExtendedPost } from "../types/db"
+import { Button } from "./components-ui/Button"
+import NpmFeed from "./pageHome/NpmFeed"
 
 interface PostFeedProps {
   npmPosts: ExtendedPost[]
@@ -14,16 +16,15 @@ interface PostFeedProps {
 export default function RightNav({ npmPosts }: PostFeedProps) {
   const [opened, { open, close }] = useDisclosure(false)
 
-
   return (
     <div>
       <Group position="right">
-        <Button 
-          variant={"outline"} 
-          onClick={open} 
-          className="bg-opacity-0 mt-5 mr-5 text-primary"
+        <Button
+          variant={"outline"}
+          onClick={open}
+          className="mr-5 mt-5 bg-opacity-0 text-primary"
         >
-          <Menu/>
+          <Menu />
         </Button>
       </Group>
       <Drawer
@@ -38,7 +39,7 @@ export default function RightNav({ npmPosts }: PostFeedProps) {
           timingFunction: "linear",
         }}
       >
-        <NpmFeed npmPosts={npmPosts}/>
+        <NpmFeed npmPosts={npmPosts} />
       </Drawer>
     </div>
   )

@@ -1,7 +1,4 @@
 import React from "react"
-import { NavBar } from "@/src/components/NavBar"
-import { SideNav } from "@/src/components/SideNav"
-import NpmFeed from "@/src/components/pageHome/NpmFeed"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 

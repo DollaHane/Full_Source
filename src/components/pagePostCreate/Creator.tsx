@@ -1,4 +1,5 @@
 "use client"
+
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { docList, npmList } from "@/src/lib/postSelections"
@@ -11,6 +12,7 @@ import axios from "axios"
 import { useForm } from "react-hook-form"
 import TextareaAutosize from "react-textarea-autosize"
 import { z } from "zod"
+
 import { toast } from "../../hooks/use-toast"
 import "../../styles/editor.css"
 
@@ -116,7 +118,7 @@ export default function Creator() {
           header: {
             class: Header,
             config: {
-              placeholder: 'Enter a header',
+              placeholder: "Enter a header",
               levels: [1, 2, 3],
               defaultLevel: 1,
             },
@@ -235,7 +237,7 @@ export default function Creator() {
             }}
             {...rest}
             placeholder="Title"
-            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl md:text-5xl font-bold focus:outline-none"
+            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl font-bold focus:outline-none md:text-5xl"
           />
 
           <hr className="w-full" />
@@ -244,7 +246,7 @@ export default function Creator() {
           <TextareaAutosize
             {...register("description")}
             placeholder="Description"
-            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-base md:text-xl focus:outline-none"
+            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-base focus:outline-none md:text-xl"
           />
 
           <hr className="w-full" />

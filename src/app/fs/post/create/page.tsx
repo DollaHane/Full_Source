@@ -5,15 +5,14 @@ import Creator from "@/src/components/pagePostCreate/Creator"
 export default function Home() {
   return (
     <div>
-
       {/* PAGE */}
-      <div className="mx-auto w-full md:w-8/12 p-5">
+      <div className="mx-auto w-full p-5 md:w-8/12">
         <div>
           <Creator />
         </div>
 
         <div className="mt-10 flex justify-start">
-        <div>
+          <div>
             <Button
               type="submit"
               className="w-20 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-cyan-100 hover:text-capecod-800"
@@ -23,15 +22,12 @@ export default function Home() {
             </Button>
           </div>
           <div className="ml-10">
-            <a href='/fs/home'>
-              <Button
-                  className="w-20 rounded-full border-rose-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-rose-100 hover:text-capecod-800"
-                >
-                  Cancel
-                </Button>
+            <a href="/fs/home">
+              <Button className="w-20 rounded-full border-rose-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-rose-100 hover:text-capecod-800">
+                Cancel
+              </Button>
             </a>
           </div>
-          
         </div>
       </div>
     </div>

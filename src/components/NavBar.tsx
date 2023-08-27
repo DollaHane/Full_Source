@@ -3,6 +3,7 @@ import { ThemeToggle } from "@/src/components/components-global/theme-toggle"
 import { siteConfig } from "@/src/config/site"
 import { authOptions } from "@/src/lib/auth"
 import { getServerSession } from "next-auth"
+
 import { db } from "../lib/db"
 import { MainNav } from "./MainNav"
 import { UserAccountNav } from "./UserAccountNav"
@@ -11,7 +12,6 @@ import { buttonVariants } from "./components-ui/Button"
 export async function NavBar() {
   const session = await getServerSession(authOptions)
 
-  
   const user = await db.user.findUnique({
     where: {
       email: session?.user.email as string | undefined,
@@ -26,13 +26,12 @@ export async function NavBar() {
           <nav className="flex items-center space-x-5">
             {/* SIGN IN */}
             {session?.user && user ? (
-              <UserAccountNav user={session.user} admin={user.admin}/>
+              <UserAccountNav user={session.user} admin={user.admin} />
             ) : (
               <Link href="/sign-in" className={buttonVariants()}>
                 Sign In
               </Link>
             )}
-
 
             {/* THEME BUTTON */}
             <ThemeToggle />
@@ -42,5 +41,3 @@ export async function NavBar() {
     </header>
   )
 }
-
-

@@ -3,7 +3,7 @@
 function CustomHeaderRenderer({ data }: any) {
   return (
     <div className="w-full">
-      <header className="text-lg mt-10 font-bold">{data.text}</header>
+      <header className="mt-10 text-lg font-bold">{data.text}</header>
     </div>
   )
 }

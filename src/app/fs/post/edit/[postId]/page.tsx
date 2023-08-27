@@ -24,14 +24,13 @@ export default async function PostPageContent({ params }: PostPageProps) {
 
   return (
     <div>
-
       {/* PAGE */}
-      <div className="mx-auto w-full md:w-8/12 p-5">
+      <div className="mx-auto w-full p-5 md:w-8/12">
         {/* EDITOR */}
         <Editor params={params} post={post} />
 
         <div className="mt-10 flex justify-start">
-        <div>
+          <div>
             <Button
               type="submit"
               className="w-20 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-cyan-100 hover:text-capecod-800"
@@ -47,7 +46,6 @@ export default async function PostPageContent({ params }: PostPageProps) {
               </Button>
             </a>
           </div>
-          
         </div>
       </div>
     </div>

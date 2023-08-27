@@ -1,4 +1,5 @@
 "use client"
+
 import Link from "next/link"
 
 function CustomImageRenderer({ data }: any) {
@@ -9,7 +10,7 @@ function CustomImageRenderer({ data }: any) {
       <Link href={src}>
         <img
           alt="image"
-          className="object-contain h-auto max-h-96 rounded-lg shadow-lg"
+          className="h-auto max-h-96 rounded-lg object-contain shadow-lg"
           src={src}
         />
       </Link>

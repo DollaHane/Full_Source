@@ -20,10 +20,16 @@ type FormData = z.infer<typeof PostValidator>
 
 type UploadOptions = {
   endpoint: "imageUploader"
-  onUploadProgress?: ({ file, progress }: { file: string; progress: number }) => void
+  onUploadProgress?: ({
+    file,
+    progress,
+  }: {
+    file: string
+    progress: number
+  }) => void
   input?: any
   files: File[]
-};
+}
 
 interface EditPageProps {
   params: {
@@ -133,10 +139,10 @@ export default function Editor({ post, params }: EditPageProps) {
           header: {
             class: Header,
             config: {
-              placeholder: 'Enter a header',
+              placeholder: "Enter a header",
               levels: [1, 2, 3],
-              defaultLevel: 1
-            }
+              defaultLevel: 1,
+            },
           },
           linkTool: {
             class: LinkTool,
@@ -254,7 +260,7 @@ export default function Editor({ post, params }: EditPageProps) {
             }}
             {...rest}
             placeholder="Title"
-            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl md:text-5xl font-bold focus:outline-none"
+            className="w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl font-bold focus:outline-none md:text-5xl"
           />
 
           <hr className="w-full" />
@@ -263,7 +269,7 @@ export default function Editor({ post, params }: EditPageProps) {
           <TextareaAutosize
             {...register("description")}
             placeholder="Description"
-            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-base md:text-xl focus:outline-none"
+            className="my-5 w-full resize-none appearance-none overflow-hidden bg-transparent text-base focus:outline-none md:text-xl"
           />
 
           <hr className="w-full" />

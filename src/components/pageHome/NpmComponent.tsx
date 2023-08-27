@@ -1,4 +1,5 @@
 "use client"
+
 import React from "react"
 import { Post } from "@prisma/client"
 import { Copy } from "lucide-react"
@@ -15,7 +16,9 @@ export default function NpmComponent({ post }: PostProps) {
   return (
     <div>
       <a href={`/post/${post.id}`}>
-        <h1 className="text-xs md:text-sm text-primary hover:text-cyan-500">{post.title}</h1>
+        <h1 className="text-xs text-primary hover:text-cyan-500 md:text-sm">
+          {post.title}
+        </h1>
       </a>
       <pre className="relative flex w-full rounded bg-capecod-600 p-2 shadow-sm">
         <code className="truncate text-xs text-capecod-50">

@@ -1,6 +1,8 @@
 "use client"
+
 import { ExtendedPost } from "@/src/types/db"
 import { useSession } from "next-auth/react"
+
 import PostComponent from "./PostComponent"
 
 interface PostFeedProps {

@@ -1,12 +1,19 @@
-'use client'
+"use client"
+
 import React from "react"
-import { Button } from "./components-ui/Button"
 import { Drawer, Group } from "@mantine/core"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./components-ui/Accordion"
 import { useDisclosure } from "@mantine/hooks"
-import { Book, LayoutList, Lightbulb, User, Menu } from "lucide-react"
+import { Book, LayoutList, Lightbulb, Menu, User } from "lucide-react"
+
 import { ExtendedPost } from "../types/db"
 import BackgroundColor from "./components-global/BackgroundColor"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components-ui/Accordion"
+import { Button } from "./components-ui/Button"
 
 interface PostFeedProps {
   workflowPosts: ExtendedPost[]
@@ -15,16 +22,15 @@ interface PostFeedProps {
 export default function LeftNav({ workflowPosts }: PostFeedProps) {
   const [opened, { open, close }] = useDisclosure(false)
 
-
   return (
     <div>
       <Group position="left">
-        <Button 
-          variant={"outline"} 
-          onClick={open} 
-          className="bg-opacity-0 ml-5 mt-5 text-primary"
+        <Button
+          variant={"outline"}
+          onClick={open}
+          className="ml-5 mt-5 bg-opacity-0 text-primary"
         >
-          <Menu/>
+          <Menu />
         </Button>
       </Group>
       <Drawer
@@ -38,7 +44,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
           timingFunction: "linear",
         }}
       >
-        <nav className="items-left flex flex-col bg-background text-primary pl-2 rounded-lg">
+        <nav className="items-left flex flex-col rounded-lg bg-background pl-2 text-primary">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="home">
               <div className="flex justify-between">

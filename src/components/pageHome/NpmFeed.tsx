@@ -1,5 +1,7 @@
-'use client'
+"use client"
+
 import { ExtendedPost } from "@/src/types/db"
+
 import NpmComponent from "./NpmComponent"
 
 interface PostFeedProps {
@@ -7,9 +9,8 @@ interface PostFeedProps {
 }
 
 export default function NpmFeed({ npmPosts }: PostFeedProps) {
-
   return (
-    <div className="w-full py-5 mb-10 z-30 bg-background rounded-lg">
+    <div className="z-30 mb-10 w-full rounded-lg bg-background py-5">
       <ul className="col-span-2 flex h-full w-full flex-col space-y-5 overflow-scroll  px-5">
         <h1 className="text-sm font-bold text-green-500 md:text-base">
           Init Developement:
@@ -83,7 +84,7 @@ export default function NpmFeed({ npmPosts }: PostFeedProps) {
           }
         })}
         <hr></hr>
-        
+
         <h1 className="text-sm font-bold text-green-500 md:text-base">
           Animation:
         </h1>
