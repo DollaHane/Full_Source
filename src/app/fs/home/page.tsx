@@ -18,13 +18,8 @@ export default async function Home() {
   })
 
   return (
-    <div className="h-auto w-full">
-      <div className="flex w-full">
-        {/* FEED */}
-        <div className="flex w-full justify-between">
-          <PostFeed posts={posts} />
-        </div>
-      </div>
+    <div className="w-full">
+      <PostFeed posts={posts} />
     </div>
   )
 }

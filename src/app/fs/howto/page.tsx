@@ -33,12 +33,7 @@ export default async function HowTo() {
 
   return (
     <div className="h-auto w-full">
-      <div className="flex w-full">
-        {/* FEED */}
-        <div className="flex w-full justify-between">
-          <PostFeed posts={posts} />
-        </div>
-      </div>
+      <PostFeed posts={posts} />
     </div>
   )
 }

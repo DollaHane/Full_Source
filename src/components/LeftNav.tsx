@@ -28,9 +28,9 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
         <Button
           variant={"default"}
           onClick={open}
-          className="ml-5 mt-5 border-none bg-white/0 text-primary"
+          className="ml-5 border-none bg-white/0 text-primary"
         >
-          <ImFinder className="h-8 w-8" />
+          <ImFinder className="h-7 w-7" />
         </Button>
       </Group>
       <Drawer
@@ -49,7 +49,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
               <div className="flex justify-between">
                 <AccordionTrigger className="w-6 justify-center" />
                 <a href="/fs/home" className="flex w-full ">
-                  <p className="my-auto ml-2 flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                  <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                     Home
                   </p>
                 </a>
@@ -60,7 +60,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                     return (
                       <a
                         href={`/fs/post/${post.id}`}
-                        className="w-11/12 rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                        className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                       >
                         {post.title}
                       </a>
@@ -75,7 +75,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                   <div className="flex w-6 justify-center">
                     <LayoutList className="my-auto h-6" />
                   </div>
-                  <p className="my-auto ml-2 flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                  <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                     How To..
                   </p>
                 </a>
@@ -87,7 +87,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                   <div className="flex w-6 justify-center">
                     <Book className="my-auto h-6" />
                   </div>
-                  <p className="my-auto ml-2 flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                  <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                     Blog
                   </p>
                 </a>
@@ -99,7 +99,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                   <div className="flex w-6 justify-center">
                     <Lightbulb className="my-auto h-6" />
                   </div>
-                  <p className="my-auto ml-2 flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                  <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                     Lessons Learnt
                   </p>
                 </a>
@@ -111,7 +111,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                   <div className="flex w-6 justify-center">
                     <User className="my-auto h-6" />
                   </div>
-                  <p className="my-auto ml-2 flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                  <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                     Content Creators
                   </p>
                 </a>

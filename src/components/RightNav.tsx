@@ -22,7 +22,7 @@ export default function RightNav({ npmPosts }: PostFeedProps) {
         <Button
           variant={"default"}
           onClick={open}
-          className="mr-5 mt-5 bg-white/0 text-primary"
+          className="mr-5 bg-white/0 text-primary"
         >
           <DiNpm className="h-10 w-10" />
         </Button>
