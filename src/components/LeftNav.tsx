@@ -6,7 +6,6 @@ import { useDisclosure } from "@mantine/hooks"
 import { Book, LayoutList, Lightbulb, Menu, User } from "lucide-react"
 
 import { ExtendedPost } from "../types/db"
-import BackgroundColor from "./components-global/BackgroundColor"
 import {
   Accordion,
   AccordionContent,
@@ -28,7 +27,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
         <Button
           variant={"outline"}
           onClick={open}
-          className="ml-5 mt-5 bg-opacity-0 text-primary"
+          className="ml-5 mt-5 bg-white/0 text-primary"
         >
           <Menu />
         </Button>

@@ -44,15 +44,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body>
           <div className="relative flex min-h-screen flex-col">
-            {/* NAVBAR */}
-            {/* @ts-expect-error Server Component */}
             <NavBar />
 
             <div className="flex justify-between">
-              {/* @ts-expect-error Server Component */}
               <LeftNav workflowPosts={workflowPosts} />
-
-              {/* @ts-expect-error Server Component */}
               <RightNav npmPosts={npmPosts} />
             </div>
 
