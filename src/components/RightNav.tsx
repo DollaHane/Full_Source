@@ -4,6 +4,7 @@ import React from "react"
 import { Drawer, Group } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { Menu } from "lucide-react"
+import { DiNpm } from 'react-icons/Di'
 
 import { ExtendedPost } from "../types/db"
 import { Button } from "./components-ui/Button"
@@ -20,11 +21,11 @@ export default function RightNav({ npmPosts }: PostFeedProps) {
     <div>
       <Group position="right">
         <Button
-          variant={"outline"}
+          variant={"default"}
           onClick={open}
           className="mr-5 mt-5 bg-white/0 text-primary"
         >
-          <Menu />
+          <DiNpm className="w-10 h-10"/>
         </Button>
       </Group>
       <Drawer
@@ -34,7 +35,6 @@ export default function RightNav({ npmPosts }: PostFeedProps) {
         onClose={close}
         title="NPM Packages"
         transitionProps={{
-          transition: "rotate-left",
           duration: 150,
           timingFunction: "linear",
         }}

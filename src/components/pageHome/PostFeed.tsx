@@ -13,7 +13,7 @@ export default function WorkflowFeed({ posts }: PostFeedProps) {
   const { data: session } = useSession()
 
   return (
-    <div className="z-20 mx-auto w-9/12 min-w-[280px] overflow-hidden">
+    <div className="z-20 mx-auto w-11/12 md:w-9/12 min-w-[280px] overflow-hidden">
       <ul className="mx-5 mb-44 mt-10 flex h-full flex-col space-y-5">
         {posts.map((post) => {
           const votesAmt = post.votes.reduce((acc, vote) => {

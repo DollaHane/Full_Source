@@ -25,9 +25,9 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
     <div>
       <Group position="left">
         <Button
-          variant={"outline"}
+          variant={"default"}
           onClick={open}
-          className="ml-5 mt-5 bg-white/0 text-primary"
+          className="ml-5 mt-5 bg-white/0 text-primary border-none"
         >
           <Menu />
         </Button>
@@ -38,7 +38,6 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
         onClose={close}
         title="Navigation"
         transitionProps={{
-          transition: "rotate-right",
           duration: 150,
           timingFunction: "linear",
         }}
