@@ -44,14 +44,14 @@ export function UserAccountNav({ user, admin }: UserAccountNavProps) {
 
         {admin === true && (
           <DropdownMenuItem asChild>
-            <Link href="/post/create">Create Post</Link>
+            <Link href="/fs/post/create">Create Post</Link>
           </DropdownMenuItem>
         )}
 
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-          <Link href="/settings">Settings</Link>
+          <Link href="/fs/settings">Settings</Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

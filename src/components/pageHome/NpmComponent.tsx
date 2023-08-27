@@ -1,5 +1,4 @@
 "use client"
-
 import React from "react"
 import { Post } from "@prisma/client"
 import { Copy } from "lucide-react"

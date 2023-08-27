@@ -1,6 +1,5 @@
 import React from "react"
 import { notFound } from "next/navigation"
-import { NavBar } from "@/src/components/NavBar"
 import { Button } from "@/src/components/components-ui/Button"
 import Editor from "@/src/components/pagePostEdit/Editor"
 import { db } from "@/src/lib/db"
@@ -25,9 +24,6 @@ export default async function PostPageContent({ params }: PostPageProps) {
 
   return (
     <div>
-      {/* NAVBAR */}
-      {/* @ts-expect-error Server Component */}
-      <NavBar />
 
       {/* PAGE */}
       <div className="mx-auto w-full md:w-8/12 p-5">

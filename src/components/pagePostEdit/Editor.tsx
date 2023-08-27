@@ -99,7 +99,7 @@ export default function Editor({ post, params }: EditPageProps) {
 
     // SUCCESS
     onSuccess: () => {
-      router.push(`/post/${postId}`)
+      router.push(`/fs/post/${postId}`)
 
       router.refresh()
 

@@ -1,7 +1,5 @@
 import { Suspense } from "react"
 import { notFound } from "next/navigation"
-import { NavBar } from "@/src/components/NavBar"
-import { SideNav } from "@/src/components/SideNav"
 import { Button, buttonVariants } from "@/src/components/components-ui/Button"
 import CommentsSection from "@/src/components/pagePost/CommentsSection"
 import EditorOutput from "@/src/components/pagePost/EditorOutput"
@@ -54,23 +52,10 @@ export default async function PostPageContent({ params }: PostPageProps) {
     },
   })
 
-  const formatWorkflowPosts = (posts: Post) => {
-    return posts?.categorydoc === "Workflow"
-  }
-  const workflowPosts = posts.filter(formatWorkflowPosts)
 
   return (
     <div>
-      {/* NAVBAR */}
-      {/* @ts-expect-error Server Component */}
-      <NavBar />
-
       <div className="flex flex-row">
-        {/* SIDEBAR */}
-        <div>
-          {/* @ts-expect-error Server Component */}
-          <SideNav workflowPosts={workflowPosts} />
-        </div>
 
         <div className="mb-44 mt-10 mx-auto flex h-full w-9/12 flex-col items-center justify-between sm:flex-row sm:items-start">
           <Suspense fallback={<PostVoteShell />}></Suspense>
@@ -81,7 +66,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
                 {post?.title ?? cachedPost.title}
               </h1>
 
-              <a href={`/post/edit/${params.postId}`}>
+              <a href={`/fs/post/edit/${params.postId}`}>
                 <Button
                   type="submit"
                   className="w-20 rounded-full border-cyan-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-background hover:text-primary"

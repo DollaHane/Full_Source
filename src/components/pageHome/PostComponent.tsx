@@ -31,7 +31,7 @@ export default function Workflow({
             <h1 className="py-2 font-prompt md:text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
               {post.index} -
             </h1>
-            <a href={`/post/${post.id}`}>
+            <a href={`/fs/post/${post.id}`}>
               <h1 className="py-2 font-prompt md:text-xl font-semibold leading-6 text-primary group-hover:text-cyan-500">
                 {post.title}
               </h1>

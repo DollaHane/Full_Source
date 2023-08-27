@@ -5,10 +5,10 @@ import NpmFeed from "@/src/components/pageHome/NpmFeed"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 
-export default async function Home() {
+export default async function Lessons() {
   const posts = await db.post.findMany({
     where: {
-      categorydoc: "Workflow",
+      categorydoc: "Lessons Learnt",
     },
     orderBy: {
       index: "asc",
@@ -22,18 +22,7 @@ export default async function Home() {
 
   return (
     <div className="h-auto w-full">
-
-      {/* NAVBAR */}
-      {/* @ts-expect-error Server Component */}
-      <NavBar />
-
       <div className="flex w-full">
-        {/* SIDENAV */}
-        <div>
-          {/* @ts-expect-error Server Component */}
-          <SideNav />
-        </div>
-
         {/* FEED */}
         <div className="flex w-full justify-between">
           <PostFeed posts={posts} />

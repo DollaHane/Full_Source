@@ -1,14 +1,29 @@
 import React from "react"
 import { NavBar } from "@/src/components/NavBar"
 import { SideNav } from "@/src/components/SideNav"
+import LeftNav from "@/src/components/LeftNav"
 import NpmFeed from "@/src/components/pageHome/NpmFeed"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 
-export default async function Creators() {
+export default async function HowTo() {
   const posts = await db.post.findMany({
     where: {
-      categorydoc: "Content Creators",
+      categorydoc: "How To",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const workflowPosts = await db.post.findMany({
+    where: {
+      categorydoc: "Workflow",
     },
     orderBy: {
       index: "asc",
@@ -22,24 +37,10 @@ export default async function Creators() {
 
   return (
     <div className="h-auto w-full">
-      
-      {/* NAVBAR */}
-      {/* @ts-expect-error Server Component */}
-      <NavBar />
-
       <div className="flex w-full">
-        {/* SIDENAV */}
-        <div>
-          {/* @ts-expect-error Server Component */}
-          <SideNav />
-        </div>
-
         {/* FEED */}
         <div className="flex w-full justify-between">
           <PostFeed posts={posts} />
-          <div className="h-screen w-[30%] min-w-[200px]"></div>
-          {/* @ts-expect-error Server Component */}
-          <NpmFeed />
         </div>
       </div>
     </div>
