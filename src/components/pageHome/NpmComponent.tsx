@@ -15,7 +15,7 @@ export default function NpmComponent({ post }: PostProps) {
 
   return (
     <div>
-      <a href={`/post/${post.id}`}>
+      <a href={`/fs/post/${post.id}`}>
         <h1 className="text-xs text-primary hover:text-cyan-500 md:text-sm">
           {post.title}
         </h1>
