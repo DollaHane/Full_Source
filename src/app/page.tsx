@@ -41,7 +41,7 @@ export default async function IndexPage() {
             <p className="w-62 text-md mx-auto mt-10 md:text-lg">
               {`Welcome ${session.user.name}!`}
             </p>
-            <Link href="/home">
+            <Link href="/fs/home">
               <Button
                 variant="outline"
                 className="mx-auto mt-10 flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-rose-400"
@@ -62,16 +62,7 @@ export default async function IndexPage() {
         )}
 
         {/* GRID SECTION */}
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
-          {/* TEXT */}
-          <div className="flex w-full flex-col content-center justify-center p-5">
-            <p className="w-7/8 text-md text-left md:text-lg">
-              Curated, updated and maintained by @dollahane, for himself...
-            </p>
-            <p className="w-7/8 text-md mt-5 text-right md:text-lg">
-              and well, for whom ever may stumble upon it :)
-            </p>
-          </div>
+        <div className="mt-10 grid grid-cols-1 gap-5">
 
           {/* ICONS */}
           <div className="flex w-full flex-wrap content-center justify-center gap-5 p-5">
