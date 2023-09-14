@@ -1,6 +1,14 @@
 "use client"
 
 import React from "react"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/src/components/components-ui/Sheet"
 import { Drawer, Group } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { DiNpm } from "react-icons/di"
@@ -17,29 +25,22 @@ export default function RightNav({ npmPosts }: PostFeedProps) {
   const [opened, { open, close }] = useDisclosure(false)
 
   return (
-    <div>
-      <Group position="right">
-        <Button
-          variant={"default"}
-          onClick={open}
-          className="mr-5 bg-white/0 text-primary"
-        >
-          <DiNpm className="h-10 w-10" />
-        </Button>
-      </Group>
-      <Drawer
-        position="right"
-        overlayProps={{ opacity: 0.5, blur: 4 }}
-        opened={opened}
-        onClose={close}
-        title="NPM Packages"
-        transitionProps={{
-          duration: 150,
-          timingFunction: "linear",
-        }}
-      >
-        <NpmFeed npmPosts={npmPosts} />
-      </Drawer>
-    </div>
+    <nav>
+      <Sheet>
+        <SheetTrigger>
+          <Button variant={"default"} className="mr-5 bg-white/0 text-primary">
+            <DiNpm className="h-10 w-10" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="overflow-scroll">
+          <SheetHeader>
+            <SheetTitle>More goodies!</SheetTitle>
+            <SheetDescription>
+              <NpmFeed npmPosts={npmPosts} />
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </nav>
   )
 }

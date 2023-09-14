@@ -14,7 +14,7 @@ export default function NpmComponent({ post }: PostProps) {
   const text = post.description
 
   return (
-    <div>
+    <div className="mb-5">
       <a href={`/fs/post/${post.id}`}>
         <h1 className="text-xs text-primary hover:text-cyan-500 md:text-sm">
           {post.title}

@@ -24,18 +24,20 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
     "outline outline-1 outline-secondary bg-background p-2 rounded-md shadow-md"
 
   return (
-    <div className="my-5 flex w-full justify-between">
+    <div className="fixed z-50 mt-5 flex w-11/12 justify-between rounded-2xl border border-primary bg-background py-2 shadow-lg">
       <HoverCard>
         <HoverCardTrigger>
           <LeftNav workflowPosts={workflowPosts} />
         </HoverCardTrigger>
-        <HoverCardContent align="end" className={style}>
-          Site Menu
-        </HoverCardContent>
+        <HoverCardContent className={style}>Site Menu</HoverCardContent>
       </HoverCard>
       <HoverCard>
         <HoverCardTrigger>
-          <a href="https://github.com/DollaHane/Full_Source" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/DollaHane/Full_Source"
+            target="_blank"
+            rel="noreferrer"
+          >
             <DiGithubBadge className="h-10 w-10 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
@@ -46,7 +48,12 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
 
       <HoverCard>
         <HoverCardTrigger>
-          <a id="vercel" href="https://vercel.com" target="_blank" rel="noreferrer">
+          <a
+            id="vercel"
+            href="https://vercel.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             <SiVercel className="h-8 w-8 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
@@ -59,7 +66,11 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
 
       <HoverCard>
         <HoverCardTrigger>
-          <a href="https://nerdcave.com/tailwind-cheat-sheet" target="_blank" rel="noreferrer">
+          <a
+            href="https://nerdcave.com/tailwind-cheat-sheet"
+            target="_blank"
+            rel="noreferrer"
+          >
             <SiTailwindcss className="h-10 w-10 text-primary hover:text-cyan-500" />
           </a>
         </HoverCardTrigger>
@@ -72,9 +83,7 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
         <HoverCardTrigger>
           <RightNav npmPosts={npmPosts} />
         </HoverCardTrigger>
-        <HoverCardContent align="start" className={style}>
-          NPM Menu
-        </HoverCardContent>
+        <HoverCardContent className={style}>NPM Menu</HoverCardContent>
       </HoverCard>
     </div>
   )

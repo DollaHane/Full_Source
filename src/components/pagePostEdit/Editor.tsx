@@ -245,7 +245,7 @@ export default function Editor({ post, params }: EditPageProps) {
   }
 
   return (
-    <div className="w-full rounded-lg bg-background p-4">
+    <div className="mt-36 w-full rounded-lg bg-background p-4">
       <form
         id="workflow-update-form"
         className="w-full"

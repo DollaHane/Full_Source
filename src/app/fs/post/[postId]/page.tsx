@@ -55,7 +55,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
   return (
     <div>
       <div className="flex flex-row">
-        <div className="mx-auto mb-44 mt-10 flex h-full w-9/12 flex-col items-center justify-between sm:flex-row sm:items-start">
+        <div className="mx-auto mb-44 mt-36 flex h-full w-9/12 flex-col items-center justify-between sm:flex-row sm:items-start">
           <Suspense fallback={<PostVoteShell />}></Suspense>
 
           <div className="w-full flex-1">
