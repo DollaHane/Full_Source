@@ -8,9 +8,14 @@ import { db } from "../lib/db"
 import { MainNav } from "./MainNav"
 import { UserAccountNav } from "./UserAccountNav"
 import { buttonVariants } from "./components-ui/Button"
+import { redirect } from "next/navigation"
 
 export async function NavBar() {
+
   const session = await getServerSession(authOptions)
+  if(session == null){
+    return redirect("/sign-in")
+  }
 
   const user = await db.user.findUnique({
     where: {
