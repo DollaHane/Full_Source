@@ -24,7 +24,7 @@ export default function Workflow({
   commentAmt,
 }: PostProps) {
   return (
-    <div className="mx-auto w-full max-w-[800px] rounded-lg border border-secondary bg-background px-5 shadow-md">
+    <div className="mx-auto w-full max-w-[800px] rounded-lg border border-l-4 border-secondary border-l-cyan-500 bg-background px-5 shadow-md">
       <div className="flex justify-between py-2">
         <div className="w-0 flex-1">
           <div className="group flex flex-row gap-2">
