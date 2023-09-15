@@ -1,8 +1,11 @@
 "use client"
+
 import dynamic from "next/dynamic"
+
 import CustomCodeRenderer from "../renderers/CustomCodeRenderer"
-import CustomImageRenderer from "../renderers/CustomImageRenderer"
 import CustomHeaderRenderer from "../renderers/CustomHeaderRenderer"
+import CustomImageRenderer from "../renderers/CustomImageRenderer"
+import CustomLinkRenderer from "../renderers/CustomLinkRenderer"
 
 const Output = dynamic(
   async () => (await import("editorjs-react-renderer")).default,
@@ -17,6 +20,7 @@ const renderers = {
   header: CustomHeaderRenderer,
   image: CustomImageRenderer,
   code: CustomCodeRenderer,
+  linktool: CustomLinkRenderer,
 }
 
 const style = {
@@ -29,7 +33,6 @@ const style = {
 }
 
 export default function EditorOutput({ content }: EditorOutputProps) {
-
   return (
     <Output
       style={style}
