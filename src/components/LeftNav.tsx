@@ -81,36 +81,42 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
                         <a
                           href="https://planetscale.com"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           PlanetScale
                         </a>
                         <a
                           href="https://orm.drizzle.team"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Drizzle ORM
                         </a>
                         <a
                           href="https://vercel.com"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Vercel
                         </a>
                         <a
                           href="https://ui.shadcn.com/docs"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Shadcn
                         </a>
                         <a
                           href="https://console.cloud.google.com/"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Google Cloud Console
                         </a>
                         <a
                           href="https://www.typescripttutorial.net"
+                          target="_blank"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           TypeScript Guide
