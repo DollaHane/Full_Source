@@ -82,6 +82,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://planetscale.com"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           PlanetScale
@@ -89,6 +90,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://orm.drizzle.team"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Drizzle ORM
@@ -96,6 +98,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://vercel.com"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Vercel
@@ -103,6 +106,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://ui.shadcn.com/docs"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Shadcn
@@ -110,6 +114,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://console.cloud.google.com/"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           Google Cloud Console
@@ -117,6 +122,7 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                         <a
                           href="https://www.typescripttutorial.net"
                           target="_blank"
+                          rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
                           TypeScript Guide
