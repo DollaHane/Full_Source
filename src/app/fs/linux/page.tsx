@@ -2,10 +2,10 @@ import React from "react"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 
-export default async function Home() {
+export default async function Linux() {
   const posts = await db.post.findMany({
     where: {
-      categorydoc: "Workflow",
+      categorydoc: "Linux Systems Admin",
     },
     orderBy: {
       index: "asc",

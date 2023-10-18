@@ -1,11 +1,9 @@
-export const typeList = [
-  "Documentation",
-  "NPM Link"
-]
+export const typeList = ["Documentation", "NPM Link"]
 
 export const docList = [
   "N/A",
-  "Workflow",
+  "React Developement",
+  "Linux Systems Admin",
   "How To",
   "Blog",
   "Lessons Learnt",
@@ -14,15 +12,14 @@ export const docList = [
 
 export const npmList = [
   "N/A",
-  "Init Developement", 
-  "Framework", 
-  "Database", 
-  "Backend", 
-  "Authentication", 
-  "State Management", 
-  "Forms & Validation", 
-  "Libraries", 
-  "Animation", 
+  "Init Developement",
+  "Framework",
+  "Database",
+  "Backend",
+  "Authentication",
+  "State Management",
+  "Forms & Validation",
+  "Libraries",
+  "Animation",
   "Services",
 ]
-

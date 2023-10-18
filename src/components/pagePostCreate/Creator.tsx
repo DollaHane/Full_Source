@@ -84,7 +84,7 @@ export default function Creator() {
 
     // SUCCESS
     onSuccess: () => {
-      router.push("/fs/home")
+      router.push("/fs/react")
 
       router.refresh()
 

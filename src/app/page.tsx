@@ -41,7 +41,7 @@ export default async function IndexPage() {
                 <p className="w-62 text-md mx-auto md:text-lg">
                   {`Welcome ${session.user.name}!`}
                 </p>
-                <Link href="/fs/home">
+                <Link href="/fs/react">
                   <Button
                     variant="outline"
                     className="mx-auto flex w-44 rounded-full border-cyan-500 bg-rose-600 font-bold text-zinc-50 shadow-lg hover:border hover:bg-rose-400"

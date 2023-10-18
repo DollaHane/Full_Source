@@ -16,10 +16,17 @@ import RightNav from "./RightNav"
 
 interface PostFeedProps {
   npmPosts: ExtendedPost[]
-  workflowPosts: ExtendedPost[]
+  reactPosts: ExtendedPost[]
+  linuxPosts: ExtendedPost[]
+  howtoPosts: ExtendedPost[]
 }
 
-export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
+export default function ToolLinks({
+  npmPosts,
+  reactPosts,
+  linuxPosts,
+  howtoPosts,
+}: PostFeedProps) {
   const style =
     "outline outline-1 outline-secondary bg-background p-2 rounded-md shadow-md"
 
@@ -27,7 +34,11 @@ export default function ToolLinks({ npmPosts, workflowPosts }: PostFeedProps) {
     <div className="fixed z-50 mt-5 flex w-11/12 justify-between rounded-2xl border border-primary bg-background py-2 shadow-lg">
       <HoverCard>
         <HoverCardTrigger>
-          <LeftNav workflowPosts={workflowPosts} />
+          <LeftNav
+            reactPosts={reactPosts}
+            linuxPosts={linuxPosts}
+            howtoPosts={howtoPosts}
+          />
         </HoverCardTrigger>
         <HoverCardContent className={style}>Site Menu</HoverCardContent>
       </HoverCard>

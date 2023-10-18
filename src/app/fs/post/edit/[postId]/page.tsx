@@ -40,7 +40,7 @@ export default async function PostPageContent({ params }: PostPageProps) {
             </Button>
           </div>
           <div className="ml-10">
-            <a href={`/post/${params.postId}`}>
+            <a href={`/post/edit/${params.postId}`}>
               <Button className="w-20 rounded-full border-rose-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-rose-100 hover:text-capecod-800">
                 Cancel
               </Button>

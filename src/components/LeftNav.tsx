@@ -9,8 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/src/components/components-ui/Sheet"
-import { useDisclosure } from "@mantine/hooks"
-import { Book, LayoutList, Lightbulb, User } from "lucide-react"
+import { Book, Lightbulb, User } from "lucide-react"
 import { ImFinder } from "react-icons/im"
 
 import { ExtendedPost } from "../types/db"
@@ -23,12 +22,16 @@ import {
 import { Button } from "./components-ui/Button"
 
 interface PostFeedProps {
-  workflowPosts: ExtendedPost[]
+  reactPosts: ExtendedPost[]
+  linuxPosts: ExtendedPost[]
+  howtoPosts: ExtendedPost[]
 }
 
-export default function LeftNav({ workflowPosts }: PostFeedProps) {
-  const [opened, { open, close }] = useDisclosure(false)
-
+export default function LeftNav({
+  reactPosts,
+  linuxPosts,
+  howtoPosts,
+}: PostFeedProps) {
   return (
     <div>
       <Sheet>
@@ -46,35 +49,11 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
             <SheetDescription>
               <nav className="items-left flex flex-col rounded-lg bg-background pl-2 text-primary">
                 <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="home">
-                    <div className="flex justify-between">
-                      <AccordionTrigger className="w-6 justify-center" />
-                      <a href="/fs/home" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
-                          Home
-                        </p>
-                      </a>
-                    </div>
-                    <AccordionContent>
-                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {workflowPosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="pscale">
+                  <AccordionItem value="hotlist">
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
-                        Favourites
+                        Hotlist
                       </p>
                     </div>
                     <AccordionContent>
@@ -130,17 +109,80 @@ export default function LeftNav({ workflowPosts }: PostFeedProps) {
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
+
+                  <AccordionItem value="react">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
+                      <a href="/fs/react" className="flex w-full ">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                          React Developement
+                        </p>
+                      </a>
+                    </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {reactPosts.map((post) => {
+                          return (
+                            <a
+                              href={`/fs/post/${post.id}`}
+                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                            >
+                              {post.title}
+                            </a>
+                          )
+                        })}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="linux">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
+                      <a href="/fs/linux" className="flex w-full ">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                          Linux Systems Admin
+                        </p>
+                      </a>
+                    </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {linuxPosts.map((post) => {
+                          return (
+                            <a
+                              href={`/fs/post/${post.id}`}
+                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                            >
+                              {post.title}
+                            </a>
+                          )
+                        })}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
                   <AccordionItem value="howto">
-                    <div className="flex h-12 justify-between">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/howto" className="flex w-full ">
-                        <div className="flex w-6 justify-center">
-                          <LayoutList className="my-auto h-6" />
-                        </div>
                         <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                           How To..
                         </p>
                       </a>
                     </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {howtoPosts.map((post) => {
+                          return (
+                            <a
+                              href={`/fs/post/${post.id}`}
+                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                            >
+                              {post.title}
+                            </a>
+                          )
+                        })}
+                      </ul>
+                    </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="blog">
                     <div className="flex h-12 justify-between">

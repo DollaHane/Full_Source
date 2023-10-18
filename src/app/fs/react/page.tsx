@@ -2,10 +2,10 @@ import React from "react"
 import PostFeed from "@/src/components/pageHome/PostFeed"
 import { db } from "@/src/lib/db"
 
-export default async function HowTo() {
+export default async function Home() {
   const posts = await db.post.findMany({
     where: {
-      categorydoc: "How To",
+      categorydoc: "React Developement",
     },
     orderBy: {
       index: "asc",
@@ -18,7 +18,7 @@ export default async function HowTo() {
   })
 
   return (
-    <div className="h-auto w-full">
+    <div className="w-full">
       <PostFeed posts={posts} />
     </div>
   )

@@ -22,7 +22,7 @@ export default function Home() {
             </Button>
           </div>
           <div className="ml-10">
-            <a href="/fs/home">
+            <a href="/fs/react">
               <Button className="w-20 rounded-full border-rose-500 bg-capecod-600 text-zinc-50 shadow-lg hover:border hover:bg-rose-100 hover:text-capecod-800">
                 Cancel
               </Button>
