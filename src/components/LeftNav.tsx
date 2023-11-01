@@ -23,12 +23,14 @@ import { Button } from "./components-ui/Button"
 
 interface PostFeedProps {
   reactPosts: ExtendedPost[]
+  reactNativePosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
   howtoPosts: ExtendedPost[]
 }
 
 export default function LeftNav({
   reactPosts,
+  reactNativePosts,
   linuxPosts,
   howtoPosts,
 }: PostFeedProps) {
@@ -83,6 +85,14 @@ export default function LeftNav({
                           Vercel
                         </a>
                         <a
+                          href="https://expo.dev"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                        >
+                          Expo 
+                        </a>
+                        <a
                           href="https://ui.shadcn.com/docs"
                           target="_blank"
                           rel="noreferrer"
@@ -122,6 +132,31 @@ export default function LeftNav({
                     <AccordionContent>
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
                         {reactPosts.map((post) => {
+                          return (
+                            <a
+                              href={`/fs/post/${post.id}`}
+                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                            >
+                              {post.title}
+                            </a>
+                          )
+                        })}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="react">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
+                      <a href="/fs/react" className="flex w-full ">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                          React Native Developement
+                        </p>
+                      </a>
+                    </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {reactNativePosts.map((post) => {
                           return (
                             <a
                               href={`/fs/post/${post.id}`}

@@ -17,6 +17,7 @@ import RightNav from "./RightNav"
 interface PostFeedProps {
   npmPosts: ExtendedPost[]
   reactPosts: ExtendedPost[]
+  reactNativePosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
   howtoPosts: ExtendedPost[]
 }
@@ -24,6 +25,7 @@ interface PostFeedProps {
 export default function ToolLinks({
   npmPosts,
   reactPosts,
+  reactNativePosts,
   linuxPosts,
   howtoPosts,
 }: PostFeedProps) {
@@ -36,6 +38,7 @@ export default function ToolLinks({
         <HoverCardTrigger>
           <LeftNav
             reactPosts={reactPosts}
+            reactNativePosts={reactNativePosts}
             linuxPosts={linuxPosts}
             howtoPosts={howtoPosts}
           />

@@ -3,6 +3,7 @@ export const typeList = ["Documentation", "NPM Link"]
 export const docList = [
   "N/A",
   "React Developement",
+  "React Native Developement",
   "Linux Systems Admin",
   "How To",
   "Blog",

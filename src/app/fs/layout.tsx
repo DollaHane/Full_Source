@@ -22,6 +22,20 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     },
   })
 
+  const reactNativePosts = await db.post.findMany({
+    where: {
+      categorydoc: "React Native Developement",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
   const linuxPosts = await db.post.findMany({
     where: {
       categorydoc: "Linux Systems Admin",
@@ -75,7 +89,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             <NavBar />
 
             <div className="mx-auto flex w-11/12">
-              <ToolLinks reactPosts={reactPosts} linuxPosts={linuxPosts} howtoPosts={howtoPosts} npmPosts={npmPosts} />
+              <ToolLinks reactPosts={reactPosts} reactNativePosts={reactNativePosts} linuxPosts={linuxPosts} howtoPosts={howtoPosts} npmPosts={npmPosts} />
               <div className="fixed z-40 mt-16 flex h-20 w-11/12 justify-between rounded-b-3xl bg-gradient-to-b from-secondary/70 via-secondary/30 to-secondary/0 py-5" />
             </div>
 
