@@ -148,7 +148,7 @@ export default function LeftNav({
                   <AccordionItem value="native">
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
-                      <a href="/fs/react" className="flex w-full ">
+                      <a href="/fs/native" className="flex w-full ">
                         <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
                           React Native Developement
                         </p>
