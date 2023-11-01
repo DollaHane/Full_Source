@@ -145,7 +145,7 @@ export default function LeftNav({
                     </AccordionContent>
                   </AccordionItem>
 
-                  <AccordionItem value="react">
+                  <AccordionItem value="native">
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/react" className="flex w-full ">
