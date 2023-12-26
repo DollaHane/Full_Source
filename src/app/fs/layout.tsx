@@ -50,6 +50,20 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     },
   })
 
+  const javascriptPosts = await db.post.findMany({
+    where: {
+      categorydoc: "JavaScript",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
   const howtoPosts = await db.post.findMany({
     where: {
       categorydoc: "How To",
@@ -89,7 +103,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             <NavBar />
 
             <div className="mx-auto flex w-11/12">
-              <ToolLinks reactPosts={reactPosts} reactNativePosts={reactNativePosts} linuxPosts={linuxPosts} howtoPosts={howtoPosts} npmPosts={npmPosts} />
+              <ToolLinks reactPosts={reactPosts} reactNativePosts={reactNativePosts} linuxPosts={linuxPosts} javascriptPosts={javascriptPosts} howtoPosts={howtoPosts} npmPosts={npmPosts} />
               <div className="fixed z-40 mt-16 flex h-20 w-11/12 justify-between rounded-b-3xl bg-gradient-to-b from-secondary/70 via-secondary/30 to-secondary/0 py-5" />
             </div>
 

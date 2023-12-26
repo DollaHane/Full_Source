@@ -19,6 +19,7 @@ interface PostFeedProps {
   reactPosts: ExtendedPost[]
   reactNativePosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
+  javascriptPosts: ExtendedPost[]
   howtoPosts: ExtendedPost[]
 }
 
@@ -27,6 +28,7 @@ export default function ToolLinks({
   reactPosts,
   reactNativePosts,
   linuxPosts,
+  javascriptPosts,
   howtoPosts,
 }: PostFeedProps) {
   const style =
@@ -40,6 +42,7 @@ export default function ToolLinks({
             reactPosts={reactPosts}
             reactNativePosts={reactNativePosts}
             linuxPosts={linuxPosts}
+            javascriptPosts={javascriptPosts}
             howtoPosts={howtoPosts}
           />
         </HoverCardTrigger>

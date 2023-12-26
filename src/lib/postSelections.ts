@@ -5,6 +5,7 @@ export const docList = [
   "React Developement",
   "React Native Developement",
   "Linux Systems Admin",
+  "JavaScript",
   "How To",
   "Blog",
   "Lessons Learnt",
