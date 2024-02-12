@@ -111,6 +111,14 @@ export default function LeftNav({
                           Google Cloud Console
                         </a>
                         <a
+                          href="https://search.google.com/search-console/"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                        >
+                          Google Search Console
+                        </a>
+                        <a
                           href="https://www.typescripttutorial.net"
                           target="_blank"
                           rel="noreferrer"
