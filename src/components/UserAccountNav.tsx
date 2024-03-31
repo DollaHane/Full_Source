@@ -4,6 +4,7 @@ import Link from "next/link"
 import { User } from "next-auth"
 import { signOut } from "next-auth/react"
 
+import { ThemeToggle } from "./components-global/theme-toggle"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,6 +55,11 @@ export function UserAccountNav({ user, admin }: UserAccountNavProps) {
           <Link href="/fs/settings">Settings</Link>
         </DropdownMenuItem>
 
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          {/* THEME BUTTON */}
+          <ThemeToggle />
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem

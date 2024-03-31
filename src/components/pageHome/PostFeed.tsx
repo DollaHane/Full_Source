@@ -14,7 +14,7 @@ export default function WorkflowFeed({ posts }: PostFeedProps) {
 
   return (
     <div className="z-20 mx-auto w-11/12 min-w-[280px] overflow-hidden md:w-9/12">
-      <ul className="mx-5 mb-44 mt-36 flex h-full flex-col space-y-5">
+      <ul className="mx-5 mb-44 mt-16 flex h-full flex-col space-y-5">
         {posts.map((post) => {
           const votesAmt = post.votes.reduce((acc, vote) => {
             if (vote.type === "UP") return acc + 1

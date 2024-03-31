@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { redirect } from "next/navigation"
 import { ThemeToggle } from "@/src/components/components-global/theme-toggle"
 import { siteConfig } from "@/src/config/site"
 import { authOptions } from "@/src/lib/auth"
@@ -6,20 +7,117 @@ import { getServerSession } from "next-auth"
 
 import { db } from "../lib/db"
 import { MainNav } from "./MainNav"
+import ToolLinks from "./ToolLinks"
 import { UserAccountNav } from "./UserAccountNav"
 import { buttonVariants } from "./components-ui/Button"
-import { redirect } from "next/navigation"
 
 export async function NavBar() {
-
   const session = await getServerSession(authOptions)
-  if(session == null){
+  if (session == null) {
     return redirect("/sign-in")
   }
 
   const user = await db.user.findUnique({
     where: {
       email: session?.user.email as string | undefined,
+    },
+  })
+
+  const reactPosts = await db.post.findMany({
+    where: {
+      categorydoc: "React Developement",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const reactNativePosts = await db.post.findMany({
+    where: {
+      categorydoc: "React Native Developement",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const linuxPosts = await db.post.findMany({
+    where: {
+      categorydoc: "Linux Systems Admin",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const javascriptPosts = await db.post.findMany({
+    where: {
+      categorydoc: "JavaScript",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const javascriptPractisePosts = await db.post.findMany({
+    where: {
+      categorydoc: "JavaScript Practise",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const howtoPosts = await db.post.findMany({
+    where: {
+      categorydoc: "How To",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
+  const npmPosts = await db.post.findMany({
+    where: {
+      type: "NPM Link",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
     },
   })
 
@@ -37,12 +135,18 @@ export async function NavBar() {
                 Sign In
               </Link>
             )}
-
-            {/* THEME BUTTON */}
-            <ThemeToggle />
           </nav>
         </div>
       </div>
+      <ToolLinks
+        reactPosts={reactPosts}
+        reactNativePosts={reactNativePosts}
+        linuxPosts={linuxPosts}
+        javascriptPosts={javascriptPosts}
+        javascriptPractisePosts={javascriptPractisePosts}
+        howtoPosts={howtoPosts}
+        npmPosts={npmPosts}
+      />
     </header>
   )
 }

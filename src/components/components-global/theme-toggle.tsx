@@ -11,14 +11,13 @@ export function ThemeToggle() {
 
   return (
     <Button
-      className="border-hidden outline-0 hover:bg-transparent"
+      className="border-hidden outline-0 hover:bg-transparent h-5 p-0"
       variant="ghost"
       size="sm"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <Sun className="h-[1.5rem] w-[1.3rem] dark:hidden" />
-      <Moon className="hidden h-5 w-5 text-zinc-200 dark:block" />
-      <span className="sr-only">Toggle theme</span>
+      <p className="text-muted-foreground hover:text-primary dark:block">Theme: Dark</p>
+      <p className="text-muted-foreground dark:hidden">Theme: Light</p>
     </Button>
   )
 }

@@ -20,6 +20,7 @@ interface PostFeedProps {
   reactNativePosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
   javascriptPosts: ExtendedPost[]
+  javascriptPractisePosts: ExtendedPost[]
   howtoPosts: ExtendedPost[]
 }
 
@@ -29,13 +30,14 @@ export default function ToolLinks({
   reactNativePosts,
   linuxPosts,
   javascriptPosts,
+  javascriptPractisePosts,
   howtoPosts,
 }: PostFeedProps) {
   const style =
     "outline outline-1 outline-secondary bg-background p-2 rounded-md shadow-md"
 
   return (
-    <div className="fixed z-50 mt-5 flex w-11/12 justify-between rounded-2xl border border-primary bg-background py-2 shadow-lg">
+    <div className="z-50 flex w-full justify-between py-2">
       <HoverCard>
         <HoverCardTrigger>
           <LeftNav
@@ -43,6 +45,7 @@ export default function ToolLinks({
             reactNativePosts={reactNativePosts}
             linuxPosts={linuxPosts}
             javascriptPosts={javascriptPosts}
+            javascriptPractisePosts={javascriptPractisePosts}
             howtoPosts={howtoPosts}
           />
         </HoverCardTrigger>

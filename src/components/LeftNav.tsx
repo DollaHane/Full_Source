@@ -26,6 +26,7 @@ interface PostFeedProps {
   reactNativePosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
   javascriptPosts: ExtendedPost[]
+  javascriptPractisePosts: ExtendedPost[]
   howtoPosts: ExtendedPost[]
 }
 
@@ -34,6 +35,7 @@ export default function LeftNav({
   reactNativePosts,
   linuxPosts,
   javascriptPosts,
+  javascriptPractisePosts,
   howtoPosts,
 }: PostFeedProps) {
   return (
@@ -92,7 +94,7 @@ export default function LeftNav({
                           rel="noreferrer"
                           className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
                         >
-                          Expo 
+                          Expo
                         </a>
                         <a
                           href="https://ui.shadcn.com/docs"
@@ -134,23 +136,24 @@ export default function LeftNav({
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/react" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           React Developement
                         </p>
                       </a>
                     </div>
                     <AccordionContent>
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {reactPosts && reactPosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
+                        {reactPosts &&
+                          reactPosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -159,48 +162,24 @@ export default function LeftNav({
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/native" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           React Native Developement
                         </p>
                       </a>
                     </div>
                     <AccordionContent>
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {reactNativePosts && reactNativePosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="linux">
-                    <div className="flex justify-between">
-                      <AccordionTrigger className="w-6 justify-center" />
-                      <a href="/fs/linux" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
-                          Linux Systems Admin
-                        </p>
-                      </a>
-                    </div>
-                    <AccordionContent>
-                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {linuxPosts && linuxPosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
+                        {reactNativePosts &&
+                          reactNativePosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -209,23 +188,79 @@ export default function LeftNav({
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/javascript" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
-                          JavaScript 
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
+                          JavaScript
                         </p>
                       </a>
                     </div>
                     <AccordionContent>
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {javascriptPosts && javascriptPosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
+                        {javascriptPosts &&
+                          javascriptPosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="javascriptPractise">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
+                      <a
+                        href="/fs/javascriptPractises"
+                        className="flex w-full "
+                      >
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
+                          JavaScript (Code Practise)
+                        </p>
+                      </a>
+                    </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {javascriptPractisePosts &&
+                          javascriptPractisePosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="linux">
+                    <div className="flex justify-between">
+                      <AccordionTrigger className="w-6 justify-center" />
+                      <a href="/fs/linux" className="flex w-full ">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
+                          Linux Systems Admin
+                        </p>
+                      </a>
+                    </div>
+                    <AccordionContent>
+                      <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
+                        {linuxPosts &&
+                          linuxPosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -234,23 +269,24 @@ export default function LeftNav({
                     <div className="flex justify-between">
                       <AccordionTrigger className="w-6 justify-center" />
                       <a href="/fs/howto" className="flex w-full ">
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           How To..
                         </p>
                       </a>
                     </div>
                     <AccordionContent>
                       <ul className="ml-8 mt-1 flex flex-col gap-2 truncate text-sm text-primary">
-                        {howtoPosts && howtoPosts.map((post) => {
-                          return (
-                            <a
-                              href={`/fs/post/${post.id}`}
-                              className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
-                            >
-                              {post.title}
-                            </a>
-                          )
-                        })}
+                        {howtoPosts &&
+                          howtoPosts.map((post) => {
+                            return (
+                              <a
+                                href={`/fs/post/${post.id}`}
+                                className="w-11/12 truncate rounded bg-secondary p-1 text-sm hover:text-cyan-500"
+                              >
+                                {post.title}
+                              </a>
+                            )
+                          })}
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -260,7 +296,7 @@ export default function LeftNav({
                         <div className="flex w-6 justify-center">
                           <Book className="my-auto h-6" />
                         </div>
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           Blog
                         </p>
                       </a>
@@ -272,7 +308,7 @@ export default function LeftNav({
                         <div className="flex w-6 justify-center">
                           <Lightbulb className="my-auto h-6" />
                         </div>
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           Lessons Learnt
                         </p>
                       </a>
@@ -284,7 +320,7 @@ export default function LeftNav({
                         <div className="flex w-6 justify-center">
                           <User className="my-auto h-6" />
                         </div>
-                        <p className="mx-2 my-auto flex h-5 w-full justify-start text-center hover:text-cyan-500">
+                        <p className="mx-2 my-auto flex h-5 w-full justify-start truncate text-center hover:text-cyan-500">
                           Content Creators
                         </p>
                       </a>
