@@ -18,6 +18,7 @@ interface PostFeedProps {
   npmPosts: ExtendedPost[]
   reactPosts: ExtendedPost[]
   reactNativePosts: ExtendedPost[]
+  javaPosts: ExtendedPost[]
   linuxPosts: ExtendedPost[]
   javascriptPosts: ExtendedPost[]
   javascriptPractisePosts: ExtendedPost[]
@@ -28,6 +29,7 @@ export default function ToolLinks({
   npmPosts,
   reactPosts,
   reactNativePosts,
+  javaPosts,
   linuxPosts,
   javascriptPosts,
   javascriptPractisePosts,
@@ -43,6 +45,7 @@ export default function ToolLinks({
           <LeftNav
             reactPosts={reactPosts}
             reactNativePosts={reactNativePosts}
+            javaPosts={javaPosts}
             linuxPosts={linuxPosts}
             javascriptPosts={javascriptPosts}
             javascriptPractisePosts={javascriptPractisePosts}

@@ -51,6 +51,20 @@ export async function NavBar() {
     },
   })
 
+  const javaPosts = await db.post.findMany({
+    where: {
+      categorydoc: "Java Maven",
+    },
+    orderBy: {
+      index: "asc",
+    },
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+    },
+  })
+
   const linuxPosts = await db.post.findMany({
     where: {
       categorydoc: "Linux Systems Admin",
@@ -142,6 +156,7 @@ export async function NavBar() {
         reactPosts={reactPosts}
         reactNativePosts={reactNativePosts}
         linuxPosts={linuxPosts}
+        javaPosts={javaPosts}
         javascriptPosts={javascriptPosts}
         javascriptPractisePosts={javascriptPractisePosts}
         howtoPosts={howtoPosts}
